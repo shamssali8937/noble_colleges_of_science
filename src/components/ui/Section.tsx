@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils'
 
 export interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   id?: string
-  variant?: 'parchment' | 'white' | 'sandstone' | 'pine'
+  variant?: 'base' | 'alt' | 'white' | 'dark'
   spacing?: 'none' | 'sm' | 'md' | 'lg'
   hasBorderTop?: boolean
   hasBorderBottom?: boolean
@@ -13,7 +13,7 @@ export interface SectionProps extends React.HTMLAttributes<HTMLElement> {
 
 export const Section: React.FC<SectionProps> = ({
   id,
-  variant = 'parchment',
+  variant = 'base',
   spacing = 'md',
   hasBorderTop = false,
   hasBorderBottom = false,
@@ -22,18 +22,20 @@ export const Section: React.FC<SectionProps> = ({
   ...props
 }) => {
   const variantClasses = {
-    parchment: 'bg-[#FAF8F5] text-[#111F18]',
-    white: 'bg-white text-[#111F18]',
-    sandstone: 'bg-[#F3EFE8] text-[#111F18]',
-    pine: 'bg-[#133826] text-white',
+    base: 'bg-[#FAF7F2] text-[#1F1A19]',
+    alt: 'bg-[#F2ECE1] text-[#1F1A19]',
+    white: 'bg-white text-[#1F1A19]',
+    dark: 'bg-[#1A0C0E] text-[#FAF7F2]',
   }
 
   const spacingClasses = {
     none: 'py-0',
-    sm: 'py-12 md:py-16',
-    md: 'py-16 md:py-24',
-    lg: 'py-20 md:py-32',
+    sm: 'py-10 md:py-14',
+    md: 'py-14 md:py-20',
+    lg: 'py-16 md:py-24',
   }
+
+  const borderClass = variant === 'dark' ? 'border-[#2D1B1E]' : 'border-[#E2DDD5]'
 
   return (
     <section
@@ -42,8 +44,8 @@ export const Section: React.FC<SectionProps> = ({
         'relative w-full',
         variantClasses[variant],
         spacingClasses[spacing],
-        hasBorderTop && 'border-t border-[#E3DCD3]',
-        hasBorderBottom && 'border-b border-[#E3DCD3]',
+        hasBorderTop && cn('border-t', borderClass),
+        hasBorderBottom && cn('border-b', borderClass),
         className
       )}
       {...props}

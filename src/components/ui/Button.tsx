@@ -2,7 +2,7 @@ import React from 'react'
 import { cn } from '@/lib/utils'
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'crimson' | 'secondary' | 'outline' | 'outline-light' | 'ghost'
+  variant?: 'primary' | 'secondary' | 'teal' | 'outline' | 'outline-light' | 'ghost'
   size?: 'sm' | 'md' | 'lg'
   href?: string
   target?: string
@@ -31,19 +31,19 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const baseStyles =
-      'inline-flex items-center justify-center font-medium font-sans rounded-md transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#133826] focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none select-none cursor-pointer'
+      'inline-flex items-center justify-center font-medium font-sans rounded-xs transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8F0D19] focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none select-none cursor-pointer'
 
     const variantStyles = {
-      primary: 'bg-[#133826] text-white hover:bg-[#0E2A1C] shadow-sm active:translate-y-px',
-      crimson: 'bg-[#8D1B2D] text-white hover:bg-[#741725] shadow-sm active:translate-y-px',
-      secondary: 'bg-[#F3EFE8] text-[#133826] hover:bg-[#E7DFD3] border border-[#E3DCD3]',
-      outline: 'border border-[#133826] text-[#133826] hover:bg-[#133826] hover:text-white',
-      'outline-light': 'border border-white/60 text-white hover:bg-white hover:text-[#133826]',
-      ghost: 'text-[#133826] hover:bg-[#133826]/10',
+      primary: 'bg-[#8F0D19] text-white hover:bg-[#6F0A13] active:bg-[#55070E]',
+      secondary: 'bg-[#F2ECE1] text-[#1F1A19] hover:bg-[#E2DDD5] border border-[#E2DDD5]',
+      teal: 'bg-[#1D5B56] text-white hover:bg-[#14423E] active:bg-[#0D2C29]',
+      outline: 'border border-[#8F0D19] text-[#8F0D19] hover:bg-[#8F0D19] hover:text-white',
+      'outline-light': 'border border-white/60 text-white hover:bg-white hover:text-[#1F1A19]',
+      ghost: 'text-[#1F1A19] hover:bg-[#8F0D19]/10',
     }
 
     const sizeStyles = {
-      sm: 'text-sm min-h-[38px] px-3.5 py-1.5 gap-1.5',
+      sm: 'text-sm min-h-[44px] sm:min-h-[36px] px-3.5 py-1.5 gap-1.5',
       md: 'text-sm md:text-base min-h-[44px] px-5 py-2.5 gap-2',
       lg: 'text-base min-h-[50px] px-6 py-3 gap-2.5',
     }

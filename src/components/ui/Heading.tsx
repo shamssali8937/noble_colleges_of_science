@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils'
 export interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5'
   size?: 'hero' | 'display' | 'section' | 'title' | 'subtitle'
-  tone?: 'default' | 'pine' | 'crimson' | 'light' | 'muted'
+  tone?: 'default' | 'maroon' | 'teal' | 'light' | 'muted'
   className?: string
   children: React.ReactNode
 }
@@ -28,19 +28,19 @@ export const Heading: React.FC<HeadingProps> = ({
   const effectiveSize = size || defaultSizeForTag[Component] || 'section'
 
   const sizeClasses = {
-    hero: 'text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold tracking-tight leading-[1.12]',
-    display: 'text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-semibold tracking-tight leading-tight',
-    section: 'text-2xl sm:text-3xl md:text-4xl font-serif font-semibold tracking-tight leading-snug',
-    title: 'text-xl sm:text-2xl font-serif font-semibold leading-snug',
-    subtitle: 'text-lg sm:text-xl font-sans font-semibold leading-normal',
+    hero: 'text-2xl sm:text-4xl md:text-[2.75rem] font-serif font-bold tracking-tight leading-[1.18]',
+    display: 'text-xl sm:text-3xl md:text-[2.2rem] font-serif font-semibold tracking-tight leading-snug',
+    section: 'text-xl sm:text-2xl md:text-[1.85rem] font-serif font-semibold tracking-tight leading-snug',
+    title: 'text-lg sm:text-xl font-serif font-semibold leading-snug',
+    subtitle: 'text-sm sm:text-base font-sans font-semibold leading-normal',
   }
 
   const toneClasses = {
-    default: 'text-[#111F18]',
-    pine: 'text-[#133826]',
-    crimson: 'text-[#8D1B2D]',
-    light: 'text-white',
-    muted: 'text-[#65756E]',
+    default: 'text-[#1F1A19]',
+    maroon: 'text-[#8F0D19]',
+    teal: 'text-[#1D5B56]',
+    light: 'text-[#FAF7F2]',
+    muted: 'text-[#736865]',
   }
 
   return (
@@ -66,7 +66,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
   kicker,
   title,
   subtitle,
-  align = 'center',
+  align = 'left',
   tone = 'default',
   className,
 }) => {
@@ -76,36 +76,39 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
   return (
     <div
       className={cn(
-        'mb-10 md:mb-14',
-        isCenter ? 'mx-auto max-w-3xl text-center' : 'max-w-3xl text-left',
+        'mb-8 md:mb-10 text-left',
+        isCenter ? 'mx-auto max-w-3xl text-center' : 'max-w-3xl',
         className
       )}
     >
       {kicker && (
-        <span
-          className={cn(
-            'inline-block text-xs md:text-sm font-semibold uppercase tracking-wider px-3 py-1 rounded-sm mb-3.5',
-            isLight
-              ? 'bg-white/10 text-white/90 border border-white/20'
-              : 'bg-[#133826]/10 text-[#133826] border border-[#133826]/20'
-          )}
-        >
-          {kicker}
-        </span>
+        <div className="mb-2">
+          <span
+            className={cn(
+              'inline-block font-sans uppercase tracking-[0.2em] text-[11px] font-semibold',
+              isLight
+                ? 'text-[#D4AF37]'
+                : 'text-[#8F0D19]'
+            )}
+          >
+            {kicker}
+          </span>
+          <div className={cn('h-px w-8 mt-1', isLight ? 'bg-[#D4AF37]/50' : 'bg-[#8F0D19]/40', isCenter && 'mx-auto')} />
+        </div>
       )}
       <Heading
         as="h2"
         size="section"
         tone={isLight ? 'light' : 'default'}
-        className="mb-4"
+        className="mb-2 text-[#1F1A19]"
       >
         {title}
       </Heading>
       {subtitle && (
         <p
           className={cn(
-            'text-base md:text-lg leading-relaxed font-sans',
-            isLight ? 'text-white/80' : 'text-[#384640]'
+            'text-sm sm:text-base leading-relaxed font-sans max-w-2xl',
+            isLight ? 'text-[#FAF7F2]/80' : 'text-[#453D3B]'
           )}
         >
           {subtitle}

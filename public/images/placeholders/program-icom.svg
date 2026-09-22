@@ -1,0 +1,9 @@
+<svg width="600" height="380" viewBox="0 0 600 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="380" fill="#F2ECE1" />
+  <rect x="8" y="8" width="584" height="364" fill="#FAF7F2" stroke="#E2DDD5" stroke-width="1" />
+  <g transform="translate(250, 130)">
+    <path d="M25 65 L25 40 L75 40 L75 65 M15 65 L85 65 M35 30 L65 30 M50 25 L50 30" fill="none" stroke="#1D5B56" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+  <text x="300" y="225" text-anchor="middle" fill="#1F1A19" font-family="'Newsreader', Georgia, serif" font-size="14" font-weight="600" letter-spacing="0.3">Commerce & Business Classroom</text>
+  <text x="300" y="244" text-anchor="middle" fill="#736865" font-family="sans-serif" font-size="11" letter-spacing="0.5">Commerce Studies — Photography Pending</text>
+</svg>
