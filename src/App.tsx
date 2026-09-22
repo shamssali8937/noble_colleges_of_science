@@ -1,31 +1,72 @@
-import React from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { PageContainer } from '@/components/layout/PageContainer'
-import { HeroSection } from '@/components/sections/HeroSection'
-import { IntroSection } from '@/components/sections/IntroSection'
-import { MissionVisionSection } from '@/components/sections/MissionVisionSection'
-import { AcademicsSection } from '@/components/sections/AcademicsSection'
-import { PrincipalSection } from '@/components/sections/PrincipalSection'
-import { FacilitiesSection } from '@/components/sections/FacilitiesSection'
-import { AdmissionsSection } from '@/components/sections/AdmissionsSection'
-import { GallerySection } from '@/components/sections/GallerySection'
-import { ClosingCtaSection } from '@/components/sections/ClosingCtaSection'
+import { HomePage } from '@/pages/HomePage'
+import { AboutPage } from '@/pages/AboutPage'
+import { AcademicsPage } from '@/pages/AcademicsPage'
+import { AdmissionsPage } from '@/pages/AdmissionsPage'
+import { FacultyPage } from '@/pages/FacultyPage'
+import { FacilitiesPage } from '@/pages/FacilitiesPage'
+import { GalleryPage } from '@/pages/GalleryPage'
+import { ContactPage } from '@/pages/ContactPage'
+
+type RoutePath = 'home' | 'about' | 'academics' | 'admissions' | 'faculty' | 'facilities' | 'gallery' | 'contact'
 
 export const App: React.FC = () => {
+  const getRouteFromHash = (): RoutePath => {
+    const hash = window.location.hash.replace('#', '').toLowerCase()
+    const validRoutes: RoutePath[] = ['home', 'about', 'academics', 'admissions', 'faculty', 'facilities', 'gallery', 'contact']
+    if (validRoutes.includes(hash as RoutePath)) {
+      return hash as RoutePath
+    }
+    return 'home'
+  }
+
+  const [currentRoute, setCurrentRoute] = useState<RoutePath>(getRouteFromHash)
+
+  // Sync route on hash change (supports back/forward browser buttons)
+  useEffect(() => {
+    const handleHashChange = () => {
+      const nextRoute = getRouteFromHash()
+      setCurrentRoute(nextRoute)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+
+    window.addEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [])
+
+  const handleNavClick = useCallback((href: string) => {
+    const targetRoute = href.replace('#', '').toLowerCase() as RoutePath
+    setCurrentRoute(targetRoute)
+    window.location.hash = href
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [])
+
+  const renderActivePage = () => {
+    switch (currentRoute) {
+      case 'about':
+        return <AboutPage onNavClick={handleNavClick} />
+      case 'academics':
+        return <AcademicsPage onNavClick={handleNavClick} />
+      case 'admissions':
+        return <AdmissionsPage onNavClick={handleNavClick} />
+      case 'faculty':
+        return <FacultyPage onNavClick={handleNavClick} />
+      case 'facilities':
+        return <FacilitiesPage onNavClick={handleNavClick} />
+      case 'gallery':
+        return <GalleryPage onNavClick={handleNavClick} />
+      case 'contact':
+        return <ContactPage onNavClick={handleNavClick} />
+      case 'home':
+      default:
+        return <HomePage onNavClick={handleNavClick} />
+    }
+  }
+
   return (
-    <PageContainer>
-      {({ handleNavClick }) => (
-        <>
-          <HeroSection onNavClick={handleNavClick} />
-          <IntroSection />
-          <MissionVisionSection />
-          <AcademicsSection />
-          <PrincipalSection />
-          <FacilitiesSection />
-          <AdmissionsSection />
-          <GallerySection />
-          <ClosingCtaSection onNavClick={handleNavClick} />
-        </>
-      )}
+    <PageContainer activeId={currentRoute} onNavClick={handleNavClick}>
+      {renderActivePage()}
     </PageContainer>
   )
 }
