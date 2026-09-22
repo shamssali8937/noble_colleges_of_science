@@ -4,15 +4,13 @@ import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
 import { Heading, SectionHeader } from '@/components/ui/Heading'
 import {
-  Phone,
   ShieldAlert,
-  Award,
   FileX,
   ClipboardX,
   FileCheck2,
-  MapPin,
   HeartHandshake,
 } from 'lucide-react'
+import { WhatsAppIcon } from '@/components/common/BrandIcons'
 
 interface AdmissionsPageProps {
   onNavClick: (href: string) => void
@@ -83,11 +81,11 @@ export const AdmissionsPage: React.FC<AdmissionsPageProps> = ({ onNavClick }) =>
       {/* Critical Institutional Notice (No Online Application) */}
       <Section variant="alt" spacing="sm" hasBorderBottom>
         <Container>
-          <div className="max-w-4xl mx-auto p-4 sm:p-5 bg-[#FAF7F2] border border-[#E2DDD5] rounded-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-left">
+          <div className="max-w-4xl mx-auto p-4 sm:p-5 bg-[#FAF7F2] border border-[#E2DDD5] flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-left">
             <div className="flex items-start gap-3">
               <ShieldAlert className="w-5 h-5 text-[#8F0D19] shrink-0 mt-0.5" />
               <div>
-                <strong className="block text-sm font-semibold text-[#1F1A19] font-sans">
+                <strong className="block text-xs uppercase tracking-[0.15em] font-semibold text-[#8F0D19] font-sans">
                   Information-Only Website Notice
                 </strong>
                 <p className="text-xs text-[#453D3B] leading-relaxed mt-0.5 font-sans">
@@ -96,24 +94,29 @@ export const AdmissionsPage: React.FC<AdmissionsPageProps> = ({ onNavClick }) =>
               </div>
             </div>
             <a
-              href="tel:03336831370"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xs bg-[#8F0D19] hover:bg-[#6F0A13] text-white text-xs font-semibold shrink-0 transition-colors font-sans"
+              href="https://wa.me/923336831370?text=Hello%20Noble%20Science%20College%2C%20I%20would%20like%20to%20inquire%20about%20admissions."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-[#1D5B56] hover:bg-[#164440] text-white text-xs font-semibold uppercase tracking-wider shrink-0 transition-colors font-sans"
             >
-              <Phone className="w-3.5 h-3.5" />
-              <span>Call: 0333-6831370</span>
+              <WhatsAppIcon className="w-3.5 h-3.5" />
+              <span>WhatsApp Admissions</span>
             </a>
           </div>
         </Container>
       </Section>
 
-      {/* Core Admission Pillars (What is NOT required) */}
+      {/* Core Admission Pillars */}
       <Section variant="white" spacing="md" hasBorderBottom>
         <Container>
           <div className="max-w-5xl mx-auto text-left">
             <div className="text-left mb-8">
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#8F0D19] font-sans">
-                Open & Accessible Access
-              </span>
+              <div className="inline-flex items-center gap-2">
+                <span className="h-px w-6 bg-[#8F0D19]/40" />
+                <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#8F0D19] font-sans">
+                  Open & Accessible Access
+                </span>
+              </div>
               <Heading as="h2" size="section" tone="default" className="mt-1">
                 Zero Barriers to Education
               </Heading>
@@ -123,33 +126,53 @@ export const AdmissionsPage: React.FC<AdmissionsPageProps> = ({ onNavClick }) =>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 font-sans">
-              <div className="p-4 rounded-xs bg-[#FAF7F2] border border-[#E2DDD5] space-y-2">
-                <FileX className="w-5 h-5 text-[#8F0D19]" />
-                <h3 className="font-serif font-bold text-base text-[#1F1A19]">No Admission Form</h3>
+              <div className="p-5 bg-[#FAF7F2] border border-[#E2DDD5] space-y-2">
+                <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-[#8F0D19] block pb-1 border-b border-[#E2DDD5]/70">
+                  Paperwork
+                </span>
+                <div className="flex items-center gap-2 pt-1">
+                  <FileX className="w-4 h-4 text-[#8F0D19]" />
+                  <h3 className="font-serif font-bold text-base text-[#1F1A19]">No Forms</h3>
+                </div>
                 <p className="text-xs text-[#756A67] leading-relaxed">
                   No cumbersome admission booklets to fill. Students enroll directly upon fee submission.
                 </p>
               </div>
 
-              <div className="p-4 rounded-xs bg-[#FAF7F2] border border-[#E2DDD5] space-y-2">
-                <ClipboardX className="w-5 h-5 text-[#8F0D19]" />
-                <h3 className="font-serif font-bold text-base text-[#1F1A19]">No Required Documents</h3>
+              <div className="p-5 bg-[#FAF7F2] border border-[#E2DDD5] space-y-2">
+                <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-[#8F0D19] block pb-1 border-b border-[#E2DDD5]/70">
+                  Prerequisites
+                </span>
+                <div className="flex items-center gap-2 pt-1">
+                  <ClipboardX className="w-4 h-4 text-[#8F0D19]" />
+                  <h3 className="font-serif font-bold text-base text-[#1F1A19]">No Pre-Docs</h3>
+                </div>
                 <p className="text-xs text-[#756A67] leading-relaxed">
                   No complex documentary prerequisites are demanded for initial institutional admission.
                 </p>
               </div>
 
-              <div className="p-4 rounded-xs bg-[#FAF7F2] border border-[#E2DDD5] space-y-2">
-                <FileCheck2 className="w-5 h-5 text-[#1D5B56]" />
-                <h3 className="font-serif font-bold text-base text-[#1F1A19]">No Entry Test</h3>
+              <div className="p-5 bg-[#FAF7F2] border border-[#E2DDD5] space-y-2">
+                <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-[#1D5B56] block pb-1 border-b border-[#E2DDD5]/70">
+                  Evaluation
+                </span>
+                <div className="flex items-center gap-2 pt-1">
+                  <FileCheck2 className="w-4 h-4 text-[#1D5B56]" />
+                  <h3 className="font-serif font-bold text-base text-[#1F1A19]">No Entry Test</h3>
+                </div>
                 <p className="text-xs text-[#756A67] leading-relaxed">
                   Replaced with a friendly personal interview with the Principal to assess mindset and readiness.
                 </p>
               </div>
 
-              <div className="p-4 rounded-xs bg-[#FAF7F2] border border-[#E2DDD5] space-y-2">
-                <HeartHandshake className="w-5 h-5 text-[#8F0D19]" />
-                <h3 className="font-serif font-bold text-base text-[#1F1A19]">Open Eligibility</h3>
+              <div className="p-5 bg-[#FAF7F2] border border-[#E2DDD5] space-y-2">
+                <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-[#8F0D19] block pb-1 border-b border-[#E2DDD5]/70">
+                  Inclusion
+                </span>
+                <div className="flex items-center gap-2 pt-1">
+                  <HeartHandshake className="w-4 h-4 text-[#8F0D19]" />
+                  <h3 className="font-serif font-bold text-base text-[#1F1A19]">Open Eligibility</h3>
+                </div>
                 <p className="text-xs text-[#756A67] leading-relaxed">
                   Open to all students wishing to begin or advance their education at Noble Science College.
                 </p>
@@ -159,7 +182,7 @@ export const AdmissionsPage: React.FC<AdmissionsPageProps> = ({ onNavClick }) =>
         </Container>
       </Section>
 
-      {/* The 6-Step Visual Admission Journey with Walkin Slot */}
+      {/* The 6-Step Visual Admission Journey with Real Plate */}
       <Section variant="alt" spacing="lg" hasBorderBottom>
         <Container>
           <SectionHeader
@@ -170,14 +193,14 @@ export const AdmissionsPage: React.FC<AdmissionsPageProps> = ({ onNavClick }) =>
 
           <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-start text-left">
             {/* Steps (7 cols) */}
-            <div className="lg:col-span-7 space-y-3.5">
+            <div className="lg:col-span-7 divide-y divide-[#E2DDD5] border-y border-[#E2DDD5]">
               {steps.map((step) => (
                 <div
                   key={step.num}
-                  className="bg-[#FAF7F2] p-4 sm:p-5 rounded-xs border border-[#E2DDD5] flex items-start gap-4"
+                  className="py-4.5 sm:py-5 flex items-start gap-4 transition-colors duration-150 hover:bg-[#FAF7F2]/60 px-2"
                 >
-                  {/* Step Number Badge */}
-                  <div className="w-9 h-9 rounded-xs bg-[#8F0D19] text-white flex items-center justify-center font-serif font-bold text-sm shrink-0">
+                  {/* Step Numeral */}
+                  <div className="w-8 h-8 bg-[#F2ECE1] border border-[#E2DDD5] text-[#8F0D19] flex items-center justify-center font-serif font-bold text-sm shrink-0">
                     {step.num}
                   </div>
 
@@ -187,12 +210,12 @@ export const AdmissionsPage: React.FC<AdmissionsPageProps> = ({ onNavClick }) =>
                       <h3 className="font-serif text-base font-bold text-[#1F1A19]">
                         {step.title}
                       </h3>
-                      <span className="text-[11px] font-semibold text-[#8F0D19] px-2 py-0.5 rounded-xs bg-[#8F0D19]/10 font-sans">
+                      <span className="text-[10px] uppercase tracking-[0.15em] font-semibold text-[#8F0D19] font-sans">
                         {step.actor}
                       </span>
                     </div>
 
-                    <p className="text-xs sm:text-sm text-[#453D3B] leading-relaxed font-sans">
+                    <p className="text-xs sm:text-sm text-[#453D3B] leading-relaxed font-sans pt-0.5">
                       {step.description}
                     </p>
 
@@ -206,103 +229,34 @@ export const AdmissionsPage: React.FC<AdmissionsPageProps> = ({ onNavClick }) =>
               ))}
             </div>
 
-            {/* Right: Walkin Photo Slot & Desk Notice (5 cols) */}
-            <div className="lg:col-span-5 space-y-4">
-              <div className="overflow-hidden rounded-xs border border-[#E2DDD5] bg-[#FAF7F2]">
-                <div className="p-2 border-b border-[#E2DDD5] bg-[#F2ECE1] text-[11px] uppercase tracking-wider font-semibold text-[#756A67] font-sans flex items-center justify-between">
-                  <span>Campus Admissions Office</span>
-                  <span className="text-[#8F0D19]">Wan Bhachran</span>
+            {/* Right: Walkin Photo Plate (5 cols) */}
+            <div className="lg:col-span-5 space-y-3">
+              <div className="border border-[#E2DDD5] bg-[#FAF7F2] p-2.5">
+                <div className="overflow-hidden border border-[#E2DDD5] bg-[#F2ECE1] aspect-[4/3]">
+                  <img
+                    src="/images/campus/admissions-desk.jpg"
+                    alt="In-person admissions desk"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
                 </div>
-                <img
-                  src="/images/placeholders/admissions-walkin.svg"
-                  alt="In-person admissions desk"
-                  className="w-full h-auto aspect-[4/3] object-cover"
-                  loading="lazy"
-                />
-              </div>
-
-              <div className="p-4 bg-[#FAF7F2] border border-[#E2DDD5] rounded-xs space-y-2 text-xs text-[#453D3B] font-sans">
-                <strong className="block text-[#1F1A19]">Principal Direct Appointment</strong>
-                <p>
-                  Principal Ehsanullah Malik conducts all admissions meetings personally to review the student's mindset and answer parent questions.
-                </p>
-                <div className="pt-1 text-[#756A67]">
-                  <span>Campus Address: Piplan Road, Wan Bhachran</span>
+                <div className="pt-2 mt-2 border-t border-[#E2DDD5]">
+                  <p className="font-serif italic text-xs text-[#756A67]">
+                    Figure: Campus admissions office and administrative registration station.
+                  </p>
                 </div>
               </div>
-            </div>
-          </div>
-        </Container>
-      </Section>
 
-      {/* Scholarships & Financial Assistance */}
-      <Section variant="white" spacing="md" hasBorderBottom>
-        <Container>
-          <div className="max-w-4xl mx-auto bg-[#FAF7F2] border border-[#E2DDD5] rounded-xs p-5 sm:p-7 text-left space-y-4 font-sans">
-            <div className="flex items-center gap-3">
-              <Award className="w-5 h-5 text-[#8F0D19]" />
-              <div>
-                <span className="text-[11px] uppercase tracking-wider font-semibold text-[#8F0D19]">
-                  Student Support
+              <div className="p-4 bg-[#FAF7F2] border border-[#E2DDD5] text-xs text-[#453D3B] font-sans space-y-1.5">
+                <span className="font-serif font-bold text-sm text-[#1F1A19] block">
+                  Campus Admissions Office
                 </span>
-                <h3 className="font-serif text-xl font-bold text-[#1F1A19]">
-                  Scholarships & Concessions
-                </h3>
-              </div>
-            </div>
-
-            <p className="text-sm text-[#453D3B] leading-relaxed">
-              In accordance with our founding mission to make education accessible to ordinary families, Noble Science College provides scholarships for:
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">
-              <div className="p-3.5 bg-[#FAF7F2] rounded-xs border border-[#E2DDD5]">
-                <strong className="block text-[#1F1A19] font-serif text-base mb-1">
-                  Needy Students
-                </strong>
-                <p className="text-xs text-[#756A67] leading-relaxed">
-                  Financial aid to support families who demonstrate financial hardship, ensuring no student is turned away due to lack of means.
+                <p className="text-[#756A67]">
+                  Near Old Musa Khel Road, Wan Bhachran, District Mianwali, Punjab.
                 </p>
-              </div>
-
-              <div className="p-3.5 bg-[#FAF7F2] rounded-xs border border-[#E2DDD5]">
-                <strong className="block text-[#1F1A19] font-serif text-base mb-1">
-                  Academically Brilliant Students
-                </strong>
-                <p className="text-xs text-[#756A67] leading-relaxed">
-                  Merit scholarships recognizing high marks, exceptional academic enthusiasm, and intellectual promise in matriculation.
-                </p>
-              </div>
-            </div>
-
-            <p className="text-xs text-[#756A67] italic pt-1">
-              Scholarship applications are reviewed during the personal meeting with Principal Ehsanullah Malik.
-            </p>
-          </div>
-        </Container>
-      </Section>
-
-      {/* Action Banner for Parents and Applicants */}
-      <Section variant="dark" spacing="md">
-        <Container>
-          <div className="max-w-3xl mx-auto text-center space-y-5">
-            <Heading as="h2" size="section" tone="light">
-              Ready to Visit the Campus?
-            </Heading>
-            <p className="text-sm sm:text-base text-[#E2DDD5]/80 leading-relaxed max-w-xl mx-auto font-sans">
-              Please call Principal Ehsanullah Malik or message the college on WhatsApp to coordinate your campus tour.
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
-              <a
-                href="tel:03336831370"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xs bg-[#8F0D19] hover:bg-[#6F0A13] text-white font-semibold text-xs transition-colors font-sans"
-              >
-                <Phone className="w-3.5 h-3.5" />
-                <span>Call Directly: 0333-6831370</span>
-              </a>
-              <div className="inline-flex items-center gap-2 text-[#E2DDD5]/80 text-xs px-3.5 py-2.5 rounded-xs bg-white/5 border border-white/10 font-sans">
-                <MapPin className="w-3.5 h-3.5 text-[#D4AF37]" />
-                <span>Near Old Musa Khel Road, Wan Bhachran</span>
+                <div className="pt-1 text-[11px] text-[#8F0D19] font-semibold uppercase tracking-wider">
+                  Hours: 8:00 AM – 2:00 PM (Monday to Saturday)
+                </div>
               </div>
             </div>
           </div>

@@ -6,6 +6,8 @@ import { MobileNav } from './MobileNav'
 import { CollegeLogo } from '@/components/common/CollegeLogo'
 import { Button } from '@/components/ui/Button'
 import { Menu, ArrowRight } from 'lucide-react'
+import { FacebookIcon, WhatsAppIcon } from '@/components/common/BrandIcons'
+import { COLLEGE_DATA } from '@/data/collegeData'
 import { cn } from '@/lib/utils'
 import { motion } from 'motion/react'
 
@@ -17,6 +19,10 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({ activeId, onNavClick }) => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  const whatsappUrl = `https://wa.me/923336831370?text=${encodeURIComponent(
+    'Hello Noble Science College, I would like to inquire about admissions.'
+  )}`
 
   // Track scroll position to update header appearance
   useEffect(() => {
@@ -67,8 +73,32 @@ export const Header: React.FC<HeaderProps> = ({ activeId, onNavClick }) => {
             {/* Desktop Navigation Links */}
             <DesktopNav activeId={activeId} onNavClick={onNavClick} />
 
-            {/* Right Action: Admission CTA + Mobile Hamburger */}
-            <div className="flex items-center gap-3">
+            {/* Right Action: Facebook, WhatsApp, Admission CTA + Mobile Hamburger */}
+            <div className="flex items-center gap-2 sm:gap-3">
+              {/* Top Facebook Link with Icon */}
+              <a
+                href={COLLEGE_DATA.contact.facebookUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 text-[#453D3B] hover:text-[#8F0D19] hover:bg-[#F2ECE1] transition-colors border border-transparent hover:border-[#E2DDD5]"
+                title="Official Facebook Page"
+                aria-label="Official Facebook Page"
+              >
+                <FacebookIcon className="w-4 h-4" />
+              </a>
+
+              {/* Top WhatsApp API Link */}
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden xl:inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#1D5B56] hover:bg-[#164440] text-white text-xs font-semibold uppercase tracking-wider transition-colors"
+                title="Chat on WhatsApp"
+              >
+                <WhatsAppIcon className="w-3.5 h-3.5" />
+                <span>WhatsApp</span>
+              </a>
+
               <Button
                 variant="primary"
                 size="sm"

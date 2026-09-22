@@ -13,17 +13,30 @@ interface AcademicsPageProps {
   onNavClick: (href: string) => void
 }
 
-const PROGRAM_IMAGES: Record<string, string> = {
-  fsc: '/images/placeholders/program-fsc.svg',
-  ics: '/images/placeholders/program-ics.svg',
-  icom: '/images/placeholders/program-icom.svg',
-  arts: '/images/placeholders/program-arts.svg',
+const PROGRAM_IMAGES: Record<string, { src: string; caption: string }> = {
+  fsc: {
+    src: '/images/campus/science-laboratory.jpg',
+    caption: 'Figure: Science laboratory practical station for F.Sc Pre-Medical and Pre-Engineering.',
+  },
+  ics: {
+    src: '/images/campus/computer-lab.jpg',
+    caption: 'Figure: Dedicated computing laboratory workstation for ICS computer science students.',
+  },
+  icom: {
+    src: '/images/campus/commerce-study.jpg',
+    caption: 'Figure: Intermediate commerce lecture environment for accounting and business studies.',
+  },
+  arts: {
+    src: '/images/campus/humanities-arts.jpg',
+    caption: 'Figure: Humanities and general science lecture hall for arts curriculum study.',
+  },
 }
 
 export const AcademicsPage: React.FC<AcademicsPageProps> = ({ onNavClick }) => {
   const [selectedId, setSelectedId] = useState<string>('fsc')
   const programs = COLLEGE_DATA.academics.programs
   const currentProgram = programs.find((p) => p.id === selectedId) || programs[0]
+  const currentImageMeta = PROGRAM_IMAGES[currentProgram.id] || PROGRAM_IMAGES.fsc
 
   return (
     <div className="w-full">
@@ -39,38 +52,38 @@ export const AcademicsPage: React.FC<AcademicsPageProps> = ({ onNavClick }) => {
       <Section variant="white" spacing="md" hasBorderBottom>
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto text-left font-sans">
-            <div className="p-4 rounded-xs bg-[#FAF7F2] border border-[#E2DDD5]">
-              <span className="text-[11px] uppercase tracking-wider font-semibold text-[#8F0D19] block">
+            <div className="p-5 bg-[#FAF7F2] border border-[#E2DDD5]">
+              <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-[#8F0D19] block pb-1 border-b border-[#E2DDD5]/70">
                 Class Scope
               </span>
-              <h3 className="font-serif text-lg font-bold text-[#1F1A19] mt-1">
-                Nursery to Class 12
+              <h3 className="font-serif text-lg font-bold text-[#1F1A19] mt-2">
+                Nursery through Class 12
               </h3>
-              <p className="text-xs text-[#756A67] mt-1 leading-relaxed">
+              <p className="text-xs text-[#756A67] mt-1.5 leading-relaxed">
                 Seamless progression spanning primary schooling, middle grades, matriculation, and intermediate college streams.
               </p>
             </div>
 
-            <div className="p-4 rounded-xs bg-[#FAF7F2] border border-[#E2DDD5]">
-              <span className="text-[11px] uppercase tracking-wider font-semibold text-[#1D5B56] block">
+            <div className="p-5 bg-[#FAF7F2] border border-[#E2DDD5]">
+              <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-[#1D5B56] block pb-1 border-b border-[#E2DDD5]/70">
                 Board Affiliation
               </span>
-              <h3 className="font-serif text-lg font-bold text-[#1F1A19] mt-1">
+              <h3 className="font-serif text-lg font-bold text-[#1F1A19] mt-2">
                 Sargodha Board
               </h3>
-              <p className="text-xs text-[#756A67] mt-1 leading-relaxed">
+              <p className="text-xs text-[#756A67] mt-1.5 leading-relaxed">
                 Full examination and curricular alignment with the Board of Intermediate and Secondary Education (BISE) Sargodha.
               </p>
             </div>
 
-            <div className="p-4 rounded-xs bg-[#FAF7F2] border border-[#E2DDD5]">
-              <span className="text-[11px] uppercase tracking-wider font-semibold text-[#8F0D19] block">
+            <div className="p-5 bg-[#FAF7F2] border border-[#E2DDD5]">
+              <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-[#8F0D19] block pb-1 border-b border-[#E2DDD5]/70">
                 Teaching Faculty
               </span>
-              <h3 className="font-serif text-lg font-bold text-[#1F1A19] mt-1">
+              <h3 className="font-serif text-lg font-bold text-[#1F1A19] mt-2">
                 MPhil & Bachelor's Degrees
               </h3>
-              <p className="text-xs text-[#756A67] mt-1 leading-relaxed">
+              <p className="text-xs text-[#756A67] mt-1.5 leading-relaxed">
                 Staffed by qualified educators dedicated to curriculum mastery, public speaking, and confidence building.
               </p>
             </div>
@@ -81,35 +94,35 @@ export const AcademicsPage: React.FC<AcademicsPageProps> = ({ onNavClick }) => {
       {/* Primary & Matric Foundations */}
       <Section variant="alt" spacing="md" hasBorderBottom>
         <Container>
-          <div className="max-w-5xl mx-auto bg-[#FAF7F2] p-5 sm:p-7 rounded-xs border border-[#E2DDD5] text-left">
+          <div className="max-w-5xl mx-auto bg-[#FAF7F2] p-5 sm:p-7 border border-[#E2DDD5] text-left">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-5 pb-5 border-b border-[#E2DDD5]">
               <div className="space-y-1">
-                <span className="text-[11px] uppercase tracking-wider font-semibold text-[#8F0D19] font-sans">
+                <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-[#8F0D19] font-sans">
                   Foundational Grades
                 </span>
                 <h2 className="font-serif text-xl sm:text-2xl font-bold text-[#1F1A19]">
                   Schooling: Nursery through Class 10
                 </h2>
-                <p className="text-sm text-[#453D3B] max-w-2xl font-sans">
+                <p className="text-xs sm:text-sm text-[#453D3B] max-w-2xl font-sans leading-relaxed">
                   Providing young learners with foundational literacy, mathematics, science, language development, and self-confidence before entering intermediate college tracks.
                 </p>
               </div>
-              <div className="shrink-0 p-2.5 rounded-xs bg-[#8F0D19]/10 text-[#8F0D19] self-start md:self-auto">
-                <GraduationCap className="w-6 h-6" />
+              <div className="shrink-0 p-2.5 bg-[#F2ECE1] border border-[#E2DDD5] text-[#8F0D19] self-start md:self-auto">
+                <GraduationCap className="w-5 h-5" />
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5 pt-5 text-xs text-[#453D3B] font-sans">
-              <div className="p-3 bg-[#F2ECE1] rounded-xs border border-[#E2DDD5]">
-                <strong className="block text-[#1F1A19] text-sm font-semibold mb-1">Early Education</strong>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pt-5 text-xs text-[#453D3B] font-sans">
+              <div className="p-3.5 bg-white border border-[#E2DDD5]">
+                <strong className="block text-[#1F1A19] font-serif font-bold text-sm mb-1">Early Education</strong>
                 <span>Nursery to Kindergarten emphasizing curiosity, basic numeracy, and communicative confidence.</span>
               </div>
-              <div className="p-3 bg-[#F2ECE1] rounded-xs border border-[#E2DDD5]">
-                <strong className="block text-[#1F1A19] text-sm font-semibold mb-1">Primary to Middle</strong>
-                <span>Classes 1 to 8 building core academic discipline and public speaking readiness.</span>
+              <div className="p-3.5 bg-white border border-[#E2DDD5]">
+                <strong className="block text-[#1F1A19] font-serif font-bold text-sm mb-1">Primary to Middle</strong>
+                <span>Classes 1 to 8 building core academic discipline, handwriting, and public speaking readiness.</span>
               </div>
-              <div className="p-3 bg-[#F2ECE1] rounded-xs border border-[#E2DDD5]">
-                <strong className="block text-[#1F1A19] text-sm font-semibold mb-1">Secondary (Matric)</strong>
+              <div className="p-3.5 bg-white border border-[#E2DDD5]">
+                <strong className="block text-[#1F1A19] font-serif font-bold text-sm mb-1">Secondary (Matric)</strong>
                 <span>Classes 9 and 10 aligned with Sargodha Board standards preparing students for higher studies.</span>
               </div>
             </div>
@@ -129,7 +142,7 @@ export const AcademicsPage: React.FC<AcademicsPageProps> = ({ onNavClick }) => {
           <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-7 items-stretch">
             {/* Interactive Program Selector (5 cols) */}
             <div className="lg:col-span-5 space-y-2 text-left">
-              <span className="block text-xs font-semibold uppercase tracking-wider text-[#756A67] mb-2 px-1 font-sans">
+              <span className="block text-[11px] font-semibold uppercase tracking-[0.2em] text-[#756A67] mb-2 px-1 font-sans">
                 Choose Intermediate Group
               </span>
 
@@ -142,7 +155,7 @@ export const AcademicsPage: React.FC<AcademicsPageProps> = ({ onNavClick }) => {
                     type="button"
                     onClick={() => setSelectedId(program.id)}
                     className={cn(
-                      'w-full p-3.5 sm:p-4 rounded-xs text-left transition-colors duration-150 border flex items-center justify-between group cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#8F0D19]',
+                      'w-full p-3.5 sm:p-4 text-left transition-colors duration-150 border flex items-center justify-between group cursor-pointer focus-visible:outline-none',
                       isSelected
                         ? 'bg-[#8F0D19] text-white border-[#8F0D19]'
                         : 'bg-[#FAF7F2] hover:bg-[#F2ECE1] text-[#1F1A19] border-[#E2DDD5]'
@@ -151,8 +164,8 @@ export const AcademicsPage: React.FC<AcademicsPageProps> = ({ onNavClick }) => {
                     <div className="flex items-center gap-3">
                       <div
                         className={cn(
-                          'w-9 h-9 rounded-xs font-serif font-bold text-sm flex items-center justify-center shrink-0',
-                          isSelected ? 'bg-white/15 text-[#D4AF37]' : 'bg-[#F2ECE1] text-[#8F0D19] border border-[#E2DDD5]'
+                          'w-8 h-8 font-serif font-bold text-xs flex items-center justify-center shrink-0 border',
+                          isSelected ? 'bg-white/15 text-white border-white/20' : 'bg-[#F2ECE1] text-[#8F0D19] border-[#E2DDD5]'
                         )}
                       >
                         {program.code}
@@ -180,7 +193,7 @@ export const AcademicsPage: React.FC<AcademicsPageProps> = ({ onNavClick }) => {
                     <ChevronRight
                       className={cn(
                         'w-4 h-4',
-                        isSelected ? 'text-[#D4AF37]' : 'text-[#756A67] opacity-40 group-hover:opacity-100'
+                        isSelected ? 'text-white' : 'text-[#756A67] opacity-40 group-hover:opacity-100'
                       )}
                     />
                   </button>
@@ -189,7 +202,7 @@ export const AcademicsPage: React.FC<AcademicsPageProps> = ({ onNavClick }) => {
             </div>
 
             {/* Program Profile Canvas (7 cols) */}
-            <div className="lg:col-span-7 bg-[#FAF7F2] border border-[#E2DDD5] rounded-xs p-5 sm:p-6 flex flex-col justify-between text-left">
+            <div className="lg:col-span-7 bg-[#FAF7F2] border border-[#E2DDD5] p-5 sm:p-6 flex flex-col justify-between text-left">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentProgram.id}
@@ -201,34 +214,40 @@ export const AcademicsPage: React.FC<AcademicsPageProps> = ({ onNavClick }) => {
                 >
                   <div className="flex items-center justify-between border-b border-[#E2DDD5] pb-3">
                     <div>
-                      <span className="text-[11px] uppercase tracking-wider font-semibold text-[#8F0D19] font-sans">
+                      <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-[#8F0D19] font-sans">
                         Group Profile
                       </span>
                       <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#1F1A19] mt-0.5">
                         {currentProgram.fullName}
                       </h3>
                     </div>
-                    <div className="p-2 rounded-xs bg-[#F2ECE1] border border-[#E2DDD5] text-[#8F0D19] hidden sm:block">
-                      <BookOpen className="w-5 h-5" />
+                    <div className="p-1.5 bg-[#F2ECE1] border border-[#E2DDD5] text-[#8F0D19] hidden sm:block">
+                      <BookOpen className="w-4 h-4" />
                     </div>
                   </div>
 
-                  {/* Program Area Placeholder Image */}
-                  <div className="overflow-hidden rounded-xs border border-[#E2DDD5] bg-[#F2ECE1] aspect-[16/9]">
-                    <img
-                      src={PROGRAM_IMAGES[currentProgram.id] || '/images/placeholders/program-fsc.svg'}
-                      alt={`${currentProgram.title} Program`}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
+                  {/* Program Photography Plate with Caption */}
+                  <div className="space-y-2">
+                    <div className="overflow-hidden border border-[#E2DDD5] bg-[#F2ECE1] aspect-[16/10]">
+                      <img
+                        src={currentImageMeta.src}
+                        alt={`${currentProgram.title} Program`}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="pt-1.5 border-t border-[#E2DDD5]/70 flex items-center justify-between text-[11px] text-[#756A67] italic font-serif">
+                      <span>{currentImageMeta.caption}</span>
+                      <span className="not-italic text-[10px] font-sans uppercase tracking-widest text-[#8F0D19] font-semibold ml-2">Verified</span>
+                    </div>
                   </div>
 
                   <div className="space-y-3 font-sans">
-                    <p className="text-sm text-[#453D3B] leading-relaxed">
+                    <p className="text-xs sm:text-sm text-[#453D3B] leading-relaxed">
                       {currentProgram.summary}
                     </p>
 
-                    <div className="p-3 bg-[#FAF7F2] rounded-xs border border-[#E2DDD5] space-y-1">
+                    <div className="p-3 bg-white border border-[#E2DDD5] space-y-1">
                       <div className="flex items-center gap-2 text-xs font-semibold text-[#1D5B56]">
                         <CheckCircle2 className="w-3.5 h-3.5 text-[#1D5B56]" />
                         <span>Curriculum & Subject Standards</span>
@@ -239,11 +258,11 @@ export const AcademicsPage: React.FC<AcademicsPageProps> = ({ onNavClick }) => {
                     </div>
 
                     <div className="grid grid-cols-2 gap-3 text-xs">
-                      <div className="p-2.5 bg-[#FAF7F2] rounded-xs border border-[#E2DDD5]">
+                      <div className="p-2.5 bg-white border border-[#E2DDD5]">
                         <span className="block text-[#756A67]">Examination Body</span>
                         <strong className="text-[#1F1A19] font-serif text-sm">{currentProgram.board}</strong>
                       </div>
-                      <div className="p-2.5 bg-[#FAF7F2] rounded-xs border border-[#E2DDD5]">
+                      <div className="p-2.5 bg-white border border-[#E2DDD5]">
                         <span className="block text-[#756A67]">Program Length</span>
                         <strong className="text-[#1F1A19] font-serif text-sm">2 Academic Years</strong>
                       </div>
@@ -274,8 +293,8 @@ export const AcademicsPage: React.FC<AcademicsPageProps> = ({ onNavClick }) => {
       {/* Academic Quality Banner */}
       <Section variant="alt" spacing="md">
         <Container>
-          <div className="max-w-4xl mx-auto p-5 bg-[#FAF7F2] border border-[#E2DDD5] rounded-xs text-center space-y-3 font-sans">
-            <Award className="w-6 h-6 text-[#8F0D19] mx-auto" />
+          <div className="max-w-4xl mx-auto p-6 bg-[#FAF7F2] border border-[#E2DDD5] text-center space-y-3 font-sans">
+            <Award className="w-5 h-5 text-[#8F0D19] mx-auto" />
             <h3 className="font-serif text-xl font-bold text-[#1F1A19]">
               Standardized Excellence Aligned with BISE Sargodha
             </h3>

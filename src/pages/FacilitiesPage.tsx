@@ -17,16 +17,16 @@ export const FacilitiesPage: React.FC<FacilitiesPageProps> = ({ onNavClick }) =>
       kicker: string
       icon: React.ReactNode
       image: string
-      accent: string
+      caption: string
       details: string[]
       highlight: string
     }
   > = {
     laboratories: {
       kicker: 'Scientific Inquiry & Practical Coursework',
-      icon: <FlaskConical className="w-6 h-6 text-[#8F0D19]" />,
-      image: '/images/placeholders/facility-lab.svg',
-      accent: 'border-l-3 border-l-[#8F0D19]',
+      icon: <FlaskConical className="w-5 h-5 text-[#8F0D19]" />,
+      image: '/images/campus/science-laboratory.jpg',
+      caption: 'Figure: Science laboratory station supporting practical chemistry, physics, and biology curricula.',
       details: [
         'Dedicated experimental laboratory rooms for science students',
         'Practical demonstration of physics, chemistry, and biology principles',
@@ -37,9 +37,9 @@ export const FacilitiesPage: React.FC<FacilitiesPageProps> = ({ onNavClick }) =>
     },
     library: {
       kicker: 'Academic Reference & Quiet Study',
-      icon: <BookMarked className="w-6 h-6 text-[#8F0D19]" />,
-      image: '/images/placeholders/facility-library.svg',
-      accent: 'border-l-3 border-l-[#8F0D19]',
+      icon: <BookMarked className="w-5 h-5 text-[#8F0D19]" />,
+      image: '/images/campus/library-reading.jpg',
+      caption: 'Figure: Reference collection and dedicated silent reading desks for intermediate students.',
       details: [
         'Curated collection of intermediate textbooks and board-approved syllabus guides',
         'Dedicated silent study desks for focused independent revision',
@@ -50,9 +50,9 @@ export const FacilitiesPage: React.FC<FacilitiesPageProps> = ({ onNavClick }) =>
     },
     'sports-grounds': {
       kicker: 'Physical Education & Athletics',
-      icon: <Trophy className="w-6 h-6 text-[#1D5B56]" />,
-      image: '/images/placeholders/facility-sports.svg',
-      accent: 'border-l-3 border-l-[#1D5B56]',
+      icon: <Trophy className="w-5 h-5 text-[#1D5B56]" />,
+      image: '/images/campus/sports-grounds.jpg',
+      caption: 'Figure: Campus athletic grounds for cricket, outdoor sports, and physical recreation.',
       details: [
         'Spacious outdoor campus sports grounds for physical fitness',
         'Space for student athletics, cricket, football, and physical activities',
@@ -63,9 +63,9 @@ export const FacilitiesPage: React.FC<FacilitiesPageProps> = ({ onNavClick }) =>
     },
     security: {
       kicker: 'Campus Safety & Perimeter Protection',
-      icon: <ShieldCheck className="w-6 h-6 text-[#1D5B56]" />,
-      image: '/images/placeholders/facility-security.svg',
-      accent: 'border-l-3 border-l-[#1D5B56]',
+      icon: <ShieldCheck className="w-5 h-5 text-[#1D5B56]" />,
+      image: '/images/campus/campus-gate.jpg',
+      caption: 'Figure: Controlled institutional boundary gates and dedicated security staff post.',
       details: [
         'Gated institutional perimeter with controlled visitor access',
         'Dedicated security staff stationed during campus operating hours',
@@ -90,82 +90,82 @@ export const FacilitiesPage: React.FC<FacilitiesPageProps> = ({ onNavClick }) =>
       <Section variant="white" spacing="md" hasBorderBottom>
         <Container>
           <div className="max-w-4xl mx-auto text-left space-y-3 mb-10">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#8F0D19] font-sans">
-              Verified Infrastructure
-            </span>
+            <div className="inline-flex items-center gap-2">
+              <span className="h-px w-6 bg-[#8F0D19]/40" />
+              <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#8F0D19] font-sans">
+                Verified Infrastructure
+              </span>
+            </div>
             <Heading as="h2" size="section" tone="default">
               Supporting the "Heaven of Knowledge"
             </Heading>
-            <p className="text-sm sm:text-base text-[#756A67] max-w-2xl font-sans leading-relaxed">
+            <p className="text-sm sm:text-base text-[#453D3B] max-w-2xl font-sans leading-relaxed">
               Every facility at Noble Science College is purposefully maintained to provide ordinary students with the resources, quietude, and safety required for exceptional achievement.
             </p>
           </div>
 
-          {/* Asymmetric / Editorial Facility Explorations */}
-          <div className="space-y-8 max-w-5xl mx-auto text-left">
+          <div className="space-y-12 max-w-5xl mx-auto text-left">
             {COLLEGE_DATA.facilities.map((facility: Facility, index: number) => {
-              const isEven = index % 2 === 0
-              const visual = facilityVisualDetails[facility.id] || {
-                kicker: facility.category,
-                icon: <FlaskConical className="w-6 h-6 text-[#8F0D19]" />,
-                image: '/images/placeholders/facility-lab.svg',
-                accent: 'border-l-3 border-l-[#8F0D19]',
-                details: facility.specifications,
-                highlight: facility.description,
-              }
+              const visual = facilityVisualDetails[facility.id]
+              const isEven = index % 2 === 1
 
               return (
                 <div
                   key={facility.id}
-                  className={`grid grid-cols-1 lg:grid-cols-12 gap-7 items-center bg-[#FAF7F2] p-5 sm:p-7 rounded-xs border border-[#E2DDD5] ${visual.accent}`}
+                  className="bg-[#FAF7F2] border border-[#E2DDD5] p-6 sm:p-8"
                 >
-                  {/* Text Column (7 cols) */}
-                  <div className={`space-y-3.5 ${isEven ? 'lg:col-span-7' : 'lg:col-span-7 lg:order-2'}`}>
-                    <div className="flex items-center gap-3">
-                      <div className="p-2 rounded-xs bg-[#F2ECE1] border border-[#E2DDD5]">
-                        {visual.icon}
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    {/* Media Plate */}
+                    <div className={`lg:col-span-6 ${isEven ? 'lg:order-2' : ''}`}>
+                      <div className="border border-[#E2DDD5] bg-[#F2ECE1] p-2">
+                        <div className="overflow-hidden border border-[#E2DDD5] aspect-[16/10]">
+                          <img
+                            src={visual?.image || '/images/campus/science-laboratory.jpg'}
+                            alt={facility.name}
+                            className="w-full h-full object-cover"
+                            loading="lazy"
+                          />
+                        </div>
+                        <div className="pt-2 mt-1.5 border-t border-[#E2DDD5]/70 flex items-center justify-between text-[11px] text-[#756A67] italic font-serif">
+                          <span>{visual?.caption}</span>
+                          <span className="not-italic text-[10px] font-sans uppercase tracking-widest text-[#8F0D19] font-semibold ml-2">Verified</span>
+                        </div>
                       </div>
-                      <div>
-                        <span className="text-[11px] uppercase tracking-wider font-semibold text-[#8F0D19] block font-sans">
-                          {visual.kicker}
+                    </div>
+
+                    {/* Content */}
+                    <div className={`lg:col-span-6 space-y-4 font-sans ${isEven ? 'lg:order-1' : ''}`}>
+                      <div className="space-y-1">
+                        <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-[#8F0D19] block">
+                          {visual?.kicker}
                         </span>
-                        <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#1F1A19]">
-                          {facility.name}
-                        </h3>
+                        <div className="flex items-center gap-2.5 pt-0.5">
+                          <div className="p-1.5 bg-[#F2ECE1] border border-[#E2DDD5]">
+                            {visual?.icon}
+                          </div>
+                          <h3 className="font-serif text-2xl font-bold text-[#1F1A19]">
+                            {facility.name}
+                          </h3>
+                        </div>
                       </div>
-                    </div>
 
-                    <p className="text-sm text-[#453D3B] leading-relaxed font-sans">
-                      {facility.description}
-                    </p>
+                      <p className="text-sm text-[#453D3B] leading-relaxed">
+                        {facility.description}
+                      </p>
 
-                    <div className="p-3 bg-[#FAF7F2] rounded-xs border border-[#E2DDD5] text-xs text-[#1D5B56] font-medium font-sans">
-                      {visual.highlight}
-                    </div>
+                      <div className="p-3 bg-white border border-[#E2DDD5] text-xs text-[#1D5B56]">
+                        <strong>Purpose:</strong> {visual?.highlight}
+                      </div>
 
-                    <ul className="space-y-1.5 pt-1 text-xs text-[#453D3B] font-sans">
-                      {visual.details.map((detail, idx) => (
-                        <li key={idx} className="flex items-start gap-2">
-                          <Check className="w-3.5 h-3.5 text-[#1D5B56] shrink-0 mt-0.5" />
-                          <span>{detail}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Architectural Image Placeholder Frame (5 cols) */}
-                  <div className={`space-y-2 ${isEven ? 'lg:col-span-5' : 'lg:col-span-5 lg:order-1'}`}>
-                    <div className="aspect-[16/9] rounded-xs bg-[#F2ECE1] border border-[#E2DDD5] overflow-hidden">
-                      <img
-                        src={visual.image}
-                        alt={`${facility.name} facility slot`}
-                        className="w-full h-full object-cover"
-                        loading="lazy"
-                      />
-                    </div>
-
-                    <div className="text-[11px] text-[#756A67] text-center flex items-center justify-center gap-1.5 font-sans">
-                      <span>{facility.name} — Verified Facility</span>
+                      {/* Detail Checklist */}
+                      <ul className="space-y-1.5 pt-2 border-t border-[#E2DDD5] text-xs text-[#453D3B]">
+                        {visual?.details.map((detail: string, dIdx: number) => (
+                          <li key={dIdx} className="flex items-start gap-2">
+                            <Check className="w-3.5 h-3.5 text-[#1D5B56] shrink-0 mt-0.5" />
+                            <span>{detail}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
                 </div>

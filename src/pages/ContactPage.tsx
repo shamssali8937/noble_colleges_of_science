@@ -4,7 +4,8 @@ import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
 import { Heading } from '@/components/ui/Heading'
 import { COLLEGE_DATA } from '@/data/collegeData'
-import { Phone, MapPin, MessageSquare, Clock, ShieldCheck, Compass, ArrowRight } from 'lucide-react'
+import { Phone, MapPin, Clock, ShieldCheck, Compass, ArrowRight } from 'lucide-react'
+import { FacebookIcon, WhatsAppIcon } from '@/components/common/BrandIcons'
 
 interface ContactPageProps {
   onNavClick: (href: string) => void
@@ -23,64 +24,68 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavClick }) => {
 
       <Section variant="white" spacing="md" hasBorderBottom>
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 max-w-6xl mx-auto items-stretch text-left font-sans">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 max-w-6xl mx-auto items-start text-left font-sans">
             {/* Left Column: Direct Phone & WhatsApp Hotline (6 cols) */}
-            <div className="lg:col-span-6 space-y-6 flex flex-col justify-between">
+            <div className="lg:col-span-6 space-y-6">
               <div className="space-y-4">
-                <span className="text-[11px] uppercase tracking-wider font-semibold text-[#8F0D19]">
-                  Direct Telephone & Messaging
-                </span>
+                <div className="inline-flex items-center gap-2">
+                  <span className="h-px w-6 bg-[#8F0D19]/40" />
+                  <span className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[#8F0D19]">
+                    Direct Telephone & Messaging
+                  </span>
+                </div>
+
                 <Heading as="h2" size="section" tone="default">
                   Call or WhatsApp the College
                 </Heading>
                 <p className="text-sm text-[#453D3B] leading-relaxed">
-                  For all questions regarding Nursery to Class 12 admissions, intermediate program requirements, meeting with Principal Ehsanullah Malik, and scholarships, please call or WhatsApp our official number directly.
+                  For all inquiries regarding Nursery to Class 12 admissions, intermediate program requirements, meeting with Principal Ehsanullah Malik, and scholarships, please call or WhatsApp our official number directly.
                 </p>
 
-                {/* Prominent Phone Card */}
-                <div className="p-5 bg-[#FAF7F2] border border-[#E2DDD5] rounded-xs space-y-3.5">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2.5 rounded-xs bg-[#8F0D19] text-white">
+                {/* Formal Phone Plate */}
+                <div className="p-6 bg-[#FAF7F2] border border-[#E2DDD5] space-y-4">
+                  <div className="flex items-center gap-3.5">
+                    <div className="p-2.5 bg-[#8F0D19] text-white">
                       <Phone className="w-5 h-5" />
                     </div>
                     <div>
-                      <span className="text-[11px] text-[#756A67] uppercase tracking-wider font-medium block">
+                      <span className="text-[10px] text-[#756A67] uppercase tracking-[0.2em] font-medium block">
                         Official Phone & WhatsApp Line
                       </span>
                       <a
                         href="tel:03336831370"
-                        className="font-serif text-2xl font-bold text-[#8F0D19] hover:text-[#6F0A13] transition-colors"
+                        className="font-serif text-2xl sm:text-3xl font-bold text-[#8F0D19] hover:text-[#6F0A13] transition-colors"
                       >
                         0333-6831370
                       </a>
                     </div>
                   </div>
 
-                  <div className="pt-1 flex flex-wrap gap-2">
+                  <div className="pt-2 border-t border-[#E2DDD5] flex flex-wrap gap-2.5">
                     <a
                       href="tel:03336831370"
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-xs bg-[#8F0D19] hover:bg-[#6F0A13] text-white text-xs font-semibold transition-colors"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-[#8F0D19] hover:bg-[#6F0A13] text-white text-xs font-semibold uppercase tracking-wider transition-colors"
                     >
                       <Phone className="w-3.5 h-3.5" />
                       <span>One-Tap Voice Call</span>
                     </a>
                     <a
-                      href="https://wa.me/923336831370"
+                      href="https://wa.me/923336831370?text=Hello%20Noble%20Science%20College%2C%20I%20would%20like%20to%20inquire%20about%20admissions."
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-xs bg-[#1D5B56] hover:bg-[#164440] text-white text-xs font-semibold transition-colors"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-[#1D5B56] hover:bg-[#164440] text-white text-xs font-semibold uppercase tracking-wider transition-colors"
                     >
-                      <MessageSquare className="w-3.5 h-3.5" />
+                      <WhatsAppIcon className="w-3.5 h-3.5 text-white" />
                       <span>Message on WhatsApp</span>
                     </a>
                   </div>
                 </div>
 
                 {/* Official Facebook Community */}
-                <div className="p-4 bg-[#FAF7F2] border border-[#E2DDD5] rounded-xs space-y-2">
+                <div className="p-5 bg-[#FAF7F2] border border-[#E2DDD5] space-y-2">
                   <div className="flex items-center gap-2">
-                    <MessageSquare className="w-4 h-4 text-[#8F0D19]" />
-                    <span className="text-[11px] uppercase tracking-wider font-semibold text-[#8F0D19]">
+                    <FacebookIcon className="w-4 h-4 text-[#8F0D19]" />
+                    <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-[#8F0D19]">
                       Official Social Presence
                     </span>
                   </div>
@@ -94,26 +99,31 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavClick }) => {
                     href={COLLEGE_DATA.contact.facebookUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block text-sm font-urdu font-medium text-[#8F0D19] hover:underline underline-offset-4 pt-1"
-                    dir="rtl"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-[#8F0D19] hover:underline underline-offset-4 pt-1"
                   >
-                    نوبل سائنس کالج واں بھچراں (Noble Science College Wan Bhachran)
+                    <FacebookIcon className="w-4 h-4 text-[#8F0D19]" />
+                    <span className="font-urdu" dir="rtl">نوبل سائنس کالج واں بھچراں</span>
+                    <span className="text-xs font-sans text-[#756A67]">(Noble Science College Wan Bhachran)</span>
                   </a>
                 </div>
               </div>
 
               {/* Data Compliance Note */}
               <div className="pt-3 border-t border-[#E2DDD5] text-xs text-[#756A67]">
-                <span>Note: Email, Instagram, YouTube, and Google Maps API services are not designated at this stage in accordance with SRS Section 6.</span>
+                <span>Note: Email, Instagram, YouTube, and Google Maps API services are not designated at this stage in accordance with official SRS requirements.</span>
               </div>
             </div>
 
-            {/* Right Column: Physical Address & Campus Visiting Guidance (6 cols) */}
-            <div className="lg:col-span-6 space-y-6 flex flex-col justify-between">
+            {/* Right Column: Physical Address & Gate Photo Plate (6 cols) */}
+            <div className="lg:col-span-6 space-y-6">
               <div className="space-y-4">
-                <span className="text-[11px] uppercase tracking-wider font-semibold text-[#1D5B56]">
-                  Campus Location
-                </span>
+                <div className="inline-flex items-center gap-2">
+                  <span className="h-px w-6 bg-[#1D5B56]/40" />
+                  <span className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[#1D5B56]">
+                    Campus Location
+                  </span>
+                </div>
+
                 <Heading as="h2" size="section" tone="default">
                   In-Person Campus Visits
                 </Heading>
@@ -121,63 +131,75 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavClick }) => {
                   Prospective students and their parents are encouraged to visit the college in person to tour the campus, inspect our scientific labs and library, and meet Principal Ehsanullah Malik directly.
                 </p>
 
+                {/* Gate Photo Plate */}
+                <div className="border border-[#E2DDD5] bg-[#FAF7F2] p-2.5">
+                  <div className="overflow-hidden border border-[#E2DDD5] bg-[#F2ECE1] aspect-[16/10]">
+                    <img
+                      src="/images/campus/campus-gate.jpg"
+                      alt="Campus Entrance Gate"
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="pt-2 mt-1.5 border-t border-[#E2DDD5]">
+                    <p className="font-serif italic text-xs text-[#756A67]">
+                      Figure: Main institutional boundary entrance and security gate at Wan Bhachran.
+                    </p>
+                  </div>
+                </div>
+
                 {/* Address Showcase Card */}
-                <div className="p-5 bg-[#FAF7F2] border border-[#E2DDD5] rounded-xs space-y-3.5">
+                <div className="p-5 bg-[#FAF7F2] border border-[#E2DDD5] space-y-3">
                   <div className="flex items-start gap-3">
-                    <div className="p-2.5 rounded-xs bg-[#1D5B56] text-white shrink-0 mt-0.5">
-                      <MapPin className="w-5 h-5" />
+                    <div className="p-2 bg-[#1D5B56] text-white shrink-0 mt-0.5">
+                      <MapPin className="w-4 h-4" />
                     </div>
                     <div>
-                      <span className="text-[11px] text-[#756A67] uppercase tracking-wider font-medium block">
+                      <span className="text-[10px] text-[#756A67] uppercase tracking-[0.2em] font-medium block">
                         Physical Campus Address
                       </span>
-                      <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#1F1A19] mt-0.5">
+                      <h3 className="font-serif text-lg font-bold text-[#1F1A19] mt-0.5">
                         Near Old Musa Khel Road
                       </h3>
-                      <p className="text-sm text-[#453D3B] mt-0.5 font-sans">
+                      <p className="text-xs text-[#453D3B] mt-0.5 font-sans">
                         Wan Bhachran, Punjab, Pakistan
                       </p>
                     </div>
                   </div>
 
-                  <div className="pt-2 space-y-1.5 text-xs text-[#756A67]">
+                  <div className="pt-2 border-t border-[#E2DDD5]/70 space-y-1.5 text-xs text-[#756A67]">
                     <div className="flex items-start gap-2">
-                      <Compass className="w-4 h-4 text-[#8F0D19] shrink-0 mt-0.5" />
+                      <Compass className="w-3.5 h-3.5 text-[#8F0D19] shrink-0 mt-0.5" />
                       <span>Accessible from main Wan Bhachran transit routes and Old Musa Khel Road.</span>
                     </div>
                     <div className="flex items-start gap-2">
-                      <ShieldCheck className="w-4 h-4 text-[#1D5B56] shrink-0 mt-0.5" />
+                      <ShieldCheck className="w-3.5 h-3.5 text-[#1D5B56] shrink-0 mt-0.5" />
                       <span>Gated entry with on-campus security personnel stationed at the main entrance.</span>
                     </div>
                   </div>
                 </div>
 
-                {/* Visiting Guidelines Card */}
-                <div className="p-4 bg-[#FAF7F2] border border-[#E2DDD5] rounded-xs space-y-2.5">
-                  <div className="flex items-center gap-2 text-[11px] uppercase tracking-wider font-semibold text-[#8F0D19]">
-                    <Clock className="w-4 h-4" />
+                {/* Visiting Guidelines */}
+                <div className="p-4 bg-[#FAF7F2] border border-[#E2DDD5] space-y-2">
+                  <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] font-semibold text-[#8F0D19]">
+                    <Clock className="w-3.5 h-3.5" />
                     <span>Visiting Recommendation</span>
                   </div>
                   <h4 className="font-serif text-base font-bold text-[#1F1A19]">
                     Planning Your Visit
                   </h4>
                   <p className="text-xs text-[#756A67] leading-relaxed">
-                    Prior to visiting, a brief call to <strong>0333-6831370</strong> helps ensure Principal Ehsanullah Malik is immediately available in his office to conduct your admission conversation without delay.
+                    Prior to visiting, a brief call to <strong>0333-6831370</strong> ensures Principal Ehsanullah Malik is available in his office to conduct your admission consultation.
                   </p>
                   <button
                     type="button"
                     onClick={() => onNavClick('#admissions')}
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#8F0D19] hover:underline cursor-pointer"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#8F0D19] hover:underline cursor-pointer pt-1"
                   >
                     <span>Review 6-Step Admission Journey</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
-              </div>
-
-              <div className="pt-3 border-t border-[#E2DDD5] text-xs text-[#756A67] flex justify-between items-center">
-                <span>Noble Science College</span>
-                <span className="font-medium text-[#8F0D19]">Wan Bhachran Campus</span>
               </div>
             </div>
           </div>

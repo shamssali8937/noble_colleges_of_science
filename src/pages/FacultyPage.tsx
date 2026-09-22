@@ -24,11 +24,11 @@ export const FacultyPage: React.FC<FacultyPageProps> = ({ onNavClick }) => {
       {/* Verified Faculty Standard Banner */}
       <Section variant="white" spacing="md" hasBorderBottom>
         <Container>
-          <div className="max-w-4xl mx-auto p-5 sm:p-7 bg-[#FAF7F2] border border-[#E2DDD5] rounded-xs text-left space-y-4 font-sans">
+          <div className="max-w-4xl mx-auto p-6 sm:p-8 bg-[#FAF7F2] border border-[#E2DDD5] text-left space-y-4 font-sans">
             <div className="flex items-center gap-3">
               <Award className="w-5 h-5 text-[#8F0D19]" />
               <div>
-                <span className="text-[11px] uppercase tracking-wider font-semibold text-[#8F0D19]">
+                <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-[#8F0D19]">
                   Official Academic Standard
                 </span>
                 <h2 className="font-serif text-xl sm:text-2xl font-bold text-[#1F1A19]">
@@ -37,21 +37,21 @@ export const FacultyPage: React.FC<FacultyPageProps> = ({ onNavClick }) => {
               </div>
             </div>
 
-            <p className="text-base text-[#453D3B] leading-relaxed">
+            <p className="text-base text-[#453D3B] leading-relaxed font-serif italic border-l-2 border-[#8F0D19] pl-4 py-1">
               "{COLLEGE_DATA.academics.facultyQualification}"
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1 text-xs">
-              <div className="p-3.5 bg-[#F2ECE1] rounded-xs border border-[#E2DDD5]">
-                <strong className="block text-[#1F1A19] font-semibold text-sm mb-1">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 text-xs">
+              <div className="p-4 bg-white border border-[#E2DDD5]">
+                <strong className="block text-[#1F1A19] font-serif font-bold text-sm mb-1">
                   MPhil Degree Holders
                 </strong>
                 <span className="text-[#756A67]">
                   Advanced postgraduate educators delivering rigorous academic analysis and subject depth across Intermediate programs.
                 </span>
               </div>
-              <div className="p-3.5 bg-[#F2ECE1] rounded-xs border border-[#E2DDD5]">
-                <strong className="block text-[#1F1A19] font-semibold text-sm mb-1">
+              <div className="p-4 bg-white border border-[#E2DDD5]">
+                <strong className="block text-[#1F1A19] font-serif font-bold text-sm mb-1">
                   Bachelor's Degree Holders
                 </strong>
                 <span className="text-[#756A67]">
@@ -66,30 +66,37 @@ export const FacultyPage: React.FC<FacultyPageProps> = ({ onNavClick }) => {
       {/* Leadership Profile: Principal Ehsanullah Malik */}
       <Section variant="alt" spacing="md" hasBorderBottom>
         <Container>
-          <div className="max-w-4xl mx-auto bg-[#FAF7F2] border border-[#E2DDD5] rounded-xs p-5 sm:p-7 text-left font-sans">
-            <div className="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
-              <div className="sm:col-span-4 text-center">
-                <div className="p-2 bg-white border border-[#E2DDD5] rounded-xs inline-block">
-                  <img
-                    src={COLLEGE_DATA.principal.photoUrl}
-                    alt={`Principal ${COLLEGE_DATA.principal.name}`}
-                    className="w-44 h-auto mx-auto rounded-xs border border-[#8F0D19]/25 object-cover aspect-[3/4]"
-                    loading="lazy"
-                  />
+          <div className="max-w-4xl mx-auto bg-[#FAF7F2] border border-[#E2DDD5] p-6 sm:p-8 text-left font-sans">
+            <div className="grid grid-cols-1 sm:grid-cols-12 gap-8 items-center">
+              <div className="sm:col-span-5 text-center">
+                <div className="border border-[#E2DDD5] bg-[#F2ECE1] p-2 inline-block">
+                  <div className="overflow-hidden border border-[#E2DDD5]">
+                    <img
+                      src={COLLEGE_DATA.principal.photoUrl}
+                      alt={`Principal ${COLLEGE_DATA.principal.name}`}
+                      className="w-48 h-auto mx-auto object-cover aspect-[3/4]"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="pt-2 mt-1.5 border-t border-[#E2DDD5] text-left">
+                    <p className="font-serif italic text-xs text-[#756A67]">
+                      Figure: Principal Ehsanullah Malik
+                    </p>
+                  </div>
                 </div>
               </div>
-              <div className="sm:col-span-8 space-y-2.5">
-                <span className="text-[11px] uppercase tracking-wider font-semibold text-[#8F0D19]">
+              <div className="sm:col-span-7 space-y-3">
+                <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-[#8F0D19]">
                   Academic Leadership
                 </span>
                 <h3 className="font-serif text-2xl font-bold text-[#1F1A19]">
                   {COLLEGE_DATA.principal.name}
                 </h3>
-                <p className="text-xs uppercase tracking-wider text-[#1D5B56] font-medium">
+                <p className="text-xs uppercase tracking-widest text-[#1D5B56] font-semibold">
                   {COLLEGE_DATA.principal.title}
                 </p>
                 <p className="text-sm text-[#453D3B] leading-relaxed">
-                  Principal Ehsanullah Malik provides daily pedagogical direction, personally conducts student readiness interviews, and leads the faculty team with the ambition of shaping students into capable, good human beings.
+                  Principal Ehsanullah Malik provides daily pedagogical direction, personally conducts student readiness interviews, and leads the faculty team with the ambition of shaping ordinary students into capable, good human beings.
                 </p>
               </div>
             </div>
@@ -107,8 +114,8 @@ export const FacultyPage: React.FC<FacultyPageProps> = ({ onNavClick }) => {
           />
 
           <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-5 text-left font-sans">
-            <div className="p-5 bg-[#FAF7F2] border border-[#E2DDD5] rounded-xs space-y-2.5">
-              <div className="p-2 rounded-xs bg-[#8F0D19]/10 text-[#8F0D19] w-fit">
+            <div className="p-5 bg-[#FAF7F2] border border-[#E2DDD5] space-y-2.5">
+              <div className="p-1.5 bg-[#F2ECE1] border border-[#E2DDD5] text-[#8F0D19] w-fit">
                 <Mic className="w-4 h-4" />
               </div>
               <h3 className="font-serif font-bold text-base text-[#1F1A19]">Public Speaking Development</h3>
@@ -117,8 +124,8 @@ export const FacultyPage: React.FC<FacultyPageProps> = ({ onNavClick }) => {
               </p>
             </div>
 
-            <div className="p-5 bg-[#FAF7F2] border border-[#E2DDD5] rounded-xs space-y-2.5">
-              <div className="p-2 rounded-xs bg-[#1D5B56]/10 text-[#1D5B56] w-fit">
+            <div className="p-5 bg-[#FAF7F2] border border-[#E2DDD5] space-y-2.5">
+              <div className="p-1.5 bg-[#F2ECE1] border border-[#E2DDD5] text-[#1D5B56] w-fit">
                 <Sparkles className="w-4 h-4" />
               </div>
               <h3 className="font-serif font-bold text-base text-[#1F1A19]">Confidence & Self-Belief</h3>
@@ -127,8 +134,8 @@ export const FacultyPage: React.FC<FacultyPageProps> = ({ onNavClick }) => {
               </p>
             </div>
 
-            <div className="p-5 bg-[#FAF7F2] border border-[#E2DDD5] rounded-xs space-y-2.5">
-              <div className="p-2 rounded-xs bg-[#8F0D19]/10 text-[#8F0D19] w-fit">
+            <div className="p-5 bg-[#FAF7F2] border border-[#E2DDD5] space-y-2.5">
+              <div className="p-1.5 bg-[#F2ECE1] border border-[#E2DDD5] text-[#8F0D19] w-fit">
                 <BookOpen className="w-4 h-4" />
               </div>
               <h3 className="font-serif font-bold text-base text-[#1F1A19]">Board Syllabus Mastery</h3>
@@ -143,8 +150,8 @@ export const FacultyPage: React.FC<FacultyPageProps> = ({ onNavClick }) => {
       {/* Flexible Faculty Architecture Notice */}
       <Section variant="alt" spacing="md">
         <Container>
-          <div className="max-w-3xl mx-auto p-5 bg-[#FAF7F2] border border-[#E2DDD5] rounded-xs text-center space-y-2.5 font-sans">
-            <Users className="w-6 h-6 text-[#8F0D19] mx-auto" />
+          <div className="max-w-3xl mx-auto p-5 bg-[#FAF7F2] border border-[#E2DDD5] text-center space-y-2 font-sans">
+            <Users className="w-5 h-5 text-[#8F0D19] mx-auto" />
             <h3 className="font-serif text-lg font-bold text-[#1F1A19]">
               Departmental Roster Integration
             </h3>

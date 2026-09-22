@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from 'motion/react'
 import { X, Phone, Award, ArrowRight } from 'lucide-react'
 import { CollegeLogo } from '@/components/common/CollegeLogo'
 import { Button } from '@/components/ui/Button'
+import { FacebookIcon, WhatsAppIcon } from '@/components/common/BrandIcons'
+import { COLLEGE_DATA } from '@/data/collegeData'
 
 interface MobileNavProps {
   isOpen: boolean
@@ -153,11 +155,31 @@ export const MobileNav: React.FC<MobileNavProps> = ({
               </Button>
 
               <a
+                href="https://wa.me/923336831370?text=Hello%20Noble%20Science%20College%2C%20I%20would%20like%20to%20inquire%20about%20admissions."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 w-full min-h-[44px] px-4 bg-[#1D5B56] hover:bg-[#164440] text-white rounded-xs text-xs font-semibold uppercase tracking-wider transition-colors"
+              >
+                <WhatsAppIcon className="w-4 h-4 text-white" />
+                <span>WhatsApp Admissions</span>
+              </a>
+
+              <a
                 href="tel:03336831370"
                 className="flex items-center justify-center gap-2 w-full min-h-[44px] px-4 bg-[#F2ECE1] hover:bg-[#E2DDD5] text-[#1F1A19] rounded-xs text-xs font-semibold transition-colors border border-[#E2DDD5]"
               >
                 <Phone className="w-3.5 h-3.5 text-[#8F0D19]" />
-                <span>Call Principal: 0333-6831370</span>
+                <span>Voice Call: 0333-6831370</span>
+              </a>
+
+              <a
+                href={COLLEGE_DATA.contact.facebookUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 w-full py-2 text-xs text-[#8F0D19] hover:underline"
+              >
+                <FacebookIcon className="w-3.5 h-3.5" />
+                <span className="font-urdu" dir="rtl">نوبل سائنس کالج واں بھچراں</span>
               </a>
 
               <p className="text-[11px] text-center text-[#756A67] pt-0.5">

@@ -3,39 +3,58 @@ import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
 import { SectionHeader } from '@/components/ui/Heading'
 import { COLLEGE_DATA } from '@/data/collegeData'
-import { Image as ImageIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
-const GALLERY_ITEMS = [
+interface GalleryItem {
+  id: string
+  category: string
+  image: string
+  caption: string
+  figureNumber: string
+}
+
+const GALLERY_ITEMS: GalleryItem[] = [
   {
+    id: 'building',
     category: 'Building & Campus',
-    image: '/images/placeholders/gallery-building-1.svg',
-    caption: 'Noble Science College Campus Grounds',
+    image: '/images/campus/campus-building.jpg',
+    caption: 'Campus exterior grounds and academic building wing at Wan Bhachran.',
+    figureNumber: 'Figure 1',
   },
   {
+    id: 'classrooms',
     category: 'Classrooms',
-    image: '/images/placeholders/gallery-classroom-1.svg',
-    caption: 'Academic Lecture & Theory Rooms',
+    image: '/images/campus/classroom-lecture.jpg',
+    caption: 'Intermediate academic lecture hall arranged for structured teaching.',
+    figureNumber: 'Figure 2',
   },
   {
+    id: 'laboratories',
     category: 'Laboratories',
-    image: '/images/placeholders/gallery-lab-1.svg',
-    caption: 'Science & Computer Practical Labs',
+    image: '/images/campus/science-laboratory.jpg',
+    caption: 'Science laboratory benches equipped for practical physics, chemistry, and biology.',
+    figureNumber: 'Figure 3',
   },
   {
+    id: 'library',
     category: 'Library',
-    image: '/images/placeholders/gallery-library-1.svg',
-    caption: 'Reference & Study Reading Area',
+    image: '/images/campus/library-reading.jpg',
+    caption: 'Curated reference library and silent study stations for independent revision.',
+    figureNumber: 'Figure 4',
   },
   {
+    id: 'assemblies',
     category: 'Events & Assemblies',
-    image: '/images/placeholders/gallery-events-1.svg',
-    caption: 'College Assembly & Debate Gatherings',
+    image: '/images/campus/student-assembly.jpg',
+    caption: 'Morning student assembly cultivating confidence and oral communication.',
+    figureNumber: 'Figure 5',
   },
   {
+    id: 'achievements',
     category: 'Student Achievements',
-    image: '/images/placeholders/gallery-awards-1.svg',
-    caption: 'Academic Recognition & Certificates',
+    image: '/images/campus/academic-awards.jpg',
+    caption: 'Commemoration of high academic achievement and BISE Sargodha distinctions.',
+    figureNumber: 'Figure 6',
   },
 ]
 
@@ -51,12 +70,12 @@ export const GallerySection: React.FC = () => {
     <Section id="gallery" variant="alt" spacing="lg" hasBorderBottom>
       <Container>
         <SectionHeader
-          kicker="Campus Photography"
-          title="Media Archive & Facilities"
-          subtitle="Designated media architecture for Noble Science College as specified in the official requirements."
+          kicker="Photographic Record"
+          title="Campus Life & Facilities"
+          subtitle="Documented educational facilities and student learning environments at Noble Science College, Wan Bhachran."
         />
 
-        {/* Filter Tabs for the 6 SRS Categories */}
+        {/* Filter Navigation */}
         <div className="flex flex-wrap items-center justify-center gap-1.5 mb-8">
           {categories.map((cat) => {
             const isSelected = activeCategory === cat
@@ -66,9 +85,9 @@ export const GallerySection: React.FC = () => {
                 type="button"
                 onClick={() => setActiveCategory(cat)}
                 className={cn(
-                  'px-3 py-1 rounded-xs text-xs font-medium transition-colors cursor-pointer border font-sans',
+                  'px-3.5 py-1 text-xs transition-colors cursor-pointer border font-sans',
                   isSelected
-                    ? 'bg-[#8F0D19] text-white border-[#8F0D19]'
+                    ? 'bg-[#8F0D19] text-white border-[#8F0D19] font-semibold'
                     : 'bg-[#FAF7F2] hover:bg-[#F2ECE1] text-[#453D3B] border-[#E2DDD5]'
                 )}
               >
@@ -78,15 +97,15 @@ export const GallerySection: React.FC = () => {
           })}
         </div>
 
-        {/* Structured Gallery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto text-left">
-          {filteredItems.map((item, idx) => (
+        {/* Structured Editorial Plate Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto text-left">
+          {filteredItems.map((item) => (
             <div
-              key={idx}
-              className="bg-[#FAF7F2] border border-[#E2DDD5] rounded-xs p-3.5 flex flex-col justify-between"
+              key={item.id}
+              className="bg-[#FAF7F2] border border-[#E2DDD5] p-3 flex flex-col justify-between"
             >
-              {/* Visual Placeholder Slot */}
-              <div className="aspect-[4/3] rounded-xs bg-[#F2ECE1] border border-[#E2DDD5] overflow-hidden">
+              {/* Image Plate */}
+              <div className="aspect-[4/3] bg-[#F2ECE1] border border-[#E2DDD5] overflow-hidden">
                 <img
                   src={item.image}
                   alt={item.caption}
@@ -95,20 +114,25 @@ export const GallerySection: React.FC = () => {
                 />
               </div>
 
-              <div className="pt-3 border-t border-[#E2DDD5] mt-3 flex items-center justify-between text-xs font-sans">
-                <span className="font-medium text-[#1F1A19]">{item.category}</span>
-                <span className="text-[#8F0D19] text-[11px] font-semibold inline-flex items-center gap-1">
-                  <ImageIcon className="w-3 h-3" />
-                  SRS Media Slot
-                </span>
+              {/* Formal Caption Block */}
+              <div className="pt-2.5 mt-2 border-t border-[#E2DDD5] space-y-1">
+                <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.15em] font-sans font-semibold">
+                  <span className="text-[#8F0D19]">{item.figureNumber}</span>
+                  <span className="text-[#756A67]">{item.category}</span>
+                </div>
+                <p className="font-serif italic text-xs text-[#453D3B] leading-snug">
+                  {item.caption}
+                </p>
               </div>
             </div>
           ))}
         </div>
 
-        <p className="mt-8 text-xs text-[#756A67] text-center max-w-xl mx-auto font-sans">
-          Campus media slots are structured for official photographs of campus buildings, classrooms, laboratories, library, events, and student awards.
-        </p>
+        <div className="mt-8 pt-4 border-t border-[#E2DDD5] max-w-2xl mx-auto text-center">
+          <p className="text-xs text-[#756A67] font-sans">
+            Archival campus photography illustrating academic spaces across Intermediate F.Sc, ICS, I.Com, and General Arts programs.
+          </p>
+        </div>
       </Container>
     </Section>
   )
