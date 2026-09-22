@@ -1,0 +1,9 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="500" fill="#F2ECE1" />
+  <rect x="8" y="8" width="784" height="484" fill="#FAF7F2" stroke="#E2DDD5" stroke-width="1" />
+  <g transform="translate(350, 190)">
+    <path d="M20 70 L20 35 L50 20 L80 35 L80 70 Z M35 70 L35 50 L65 50 L65 70 M30 38 L40 38 M60 38 L70 38" fill="none" stroke="#8F0D19" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+  <text x="400" y="285" text-anchor="middle" fill="#1F1A19" font-family="'Newsreader', Georgia, serif" font-size="14" font-weight="600" letter-spacing="0.3">Noble Science College Campus</text>
+  <text x="400" y="304" text-anchor="middle" fill="#736865" font-family="sans-serif" font-size="11" letter-spacing="0.5">Wan Bhachran Building — Architecture Pending</text>
+</svg>

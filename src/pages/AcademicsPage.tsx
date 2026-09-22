@@ -13,6 +13,13 @@ interface AcademicsPageProps {
   onNavClick: (href: string) => void
 }
 
+const PROGRAM_IMAGES: Record<string, string> = {
+  fsc: '/images/placeholders/program-fsc.svg',
+  ics: '/images/placeholders/program-ics.svg',
+  icom: '/images/placeholders/program-icom.svg',
+  arts: '/images/placeholders/program-arts.svg',
+}
+
 export const AcademicsPage: React.FC<AcademicsPageProps> = ({ onNavClick }) => {
   const [selectedId, setSelectedId] = useState<string>('fsc')
   const programs = COLLEGE_DATA.academics.programs
@@ -29,41 +36,41 @@ export const AcademicsPage: React.FC<AcademicsPageProps> = ({ onNavClick }) => {
       />
 
       {/* Scope Overview Ribbon */}
-      <Section variant="white" spacing="sm" hasBorderBottom>
+      <Section variant="white" spacing="md" hasBorderBottom>
         <Container>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto text-left">
-            <div className="p-5 rounded-lg bg-[#FAF8F5] border border-[#E3DCD3]">
-              <span className="text-xs uppercase tracking-wider font-semibold text-[#8D1B2D] block">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto text-left font-sans">
+            <div className="p-4 rounded-xs bg-[#FAF7F2] border border-[#E2DDD5]">
+              <span className="text-[11px] uppercase tracking-wider font-semibold text-[#8F0D19] block">
                 Class Scope
               </span>
-              <h3 className="font-serif text-xl font-bold text-[#111F18] mt-1">
+              <h3 className="font-serif text-lg font-bold text-[#1F1A19] mt-1">
                 Nursery to Class 12
               </h3>
-              <p className="text-xs text-[#525F5A] mt-1 leading-relaxed">
+              <p className="text-xs text-[#756A67] mt-1 leading-relaxed">
                 Seamless progression spanning primary schooling, middle grades, matriculation, and intermediate college streams.
               </p>
             </div>
 
-            <div className="p-5 rounded-lg bg-[#FAF8F5] border border-[#E3DCD3]">
-              <span className="text-xs uppercase tracking-wider font-semibold text-[#133826] block">
+            <div className="p-4 rounded-xs bg-[#FAF7F2] border border-[#E2DDD5]">
+              <span className="text-[11px] uppercase tracking-wider font-semibold text-[#1D5B56] block">
                 Board Affiliation
               </span>
-              <h3 className="font-serif text-xl font-bold text-[#111F18] mt-1">
+              <h3 className="font-serif text-lg font-bold text-[#1F1A19] mt-1">
                 Sargodha Board
               </h3>
-              <p className="text-xs text-[#525F5A] mt-1 leading-relaxed">
+              <p className="text-xs text-[#756A67] mt-1 leading-relaxed">
                 Full examination and curricular alignment with the Board of Intermediate and Secondary Education (BISE) Sargodha.
               </p>
             </div>
 
-            <div className="p-5 rounded-lg bg-[#FAF8F5] border border-[#E3DCD3]">
-              <span className="text-xs uppercase tracking-wider font-semibold text-[#C88E2E] block">
+            <div className="p-4 rounded-xs bg-[#FAF7F2] border border-[#E2DDD5]">
+              <span className="text-[11px] uppercase tracking-wider font-semibold text-[#8F0D19] block">
                 Teaching Faculty
               </span>
-              <h3 className="font-serif text-xl font-bold text-[#111F18] mt-1">
+              <h3 className="font-serif text-lg font-bold text-[#1F1A19] mt-1">
                 MPhil & Bachelor's Degrees
               </h3>
-              <p className="text-xs text-[#525F5A] mt-1 leading-relaxed">
+              <p className="text-xs text-[#756A67] mt-1 leading-relaxed">
                 Staffed by qualified educators dedicated to curriculum mastery, public speaking, and confidence building.
               </p>
             </div>
@@ -72,37 +79,37 @@ export const AcademicsPage: React.FC<AcademicsPageProps> = ({ onNavClick }) => {
       </Section>
 
       {/* Primary & Matric Foundations */}
-      <Section variant="parchment" spacing="md" hasBorderBottom>
+      <Section variant="alt" spacing="md" hasBorderBottom>
         <Container>
-          <div className="max-w-5xl mx-auto bg-white p-6 sm:p-8 rounded-lg border border-[#E3DCD3] shadow-xs text-left">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-[#E3DCD3]">
+          <div className="max-w-5xl mx-auto bg-[#FAF7F2] p-5 sm:p-7 rounded-xs border border-[#E2DDD5] text-left">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-5 pb-5 border-b border-[#E2DDD5]">
               <div className="space-y-1">
-                <span className="text-xs uppercase tracking-wider font-semibold text-[#133826]">
+                <span className="text-[11px] uppercase tracking-wider font-semibold text-[#8F0D19] font-sans">
                   Foundational Grades
                 </span>
-                <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#111F18]">
+                <h2 className="font-serif text-xl sm:text-2xl font-bold text-[#1F1A19]">
                   Schooling: Nursery through Class 10
                 </h2>
-                <p className="text-sm text-[#525F5A] max-w-2xl">
+                <p className="text-sm text-[#453D3B] max-w-2xl font-sans">
                   Providing young learners with foundational literacy, mathematics, science, language development, and self-confidence before entering intermediate college tracks.
                 </p>
               </div>
-              <div className="shrink-0 p-3 rounded-full bg-[#133826]/10 text-[#133826] self-start md:self-auto">
-                <GraduationCap className="w-8 h-8" />
+              <div className="shrink-0 p-2.5 rounded-xs bg-[#8F0D19]/10 text-[#8F0D19] self-start md:self-auto">
+                <GraduationCap className="w-6 h-6" />
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pt-6 text-xs text-[#384640]">
-              <div className="p-3.5 bg-[#FAF8F5] rounded border border-[#E3DCD3]">
-                <strong className="block text-[#111F18] text-sm font-semibold mb-1">Early Education</strong>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5 pt-5 text-xs text-[#453D3B] font-sans">
+              <div className="p-3 bg-[#F2ECE1] rounded-xs border border-[#E2DDD5]">
+                <strong className="block text-[#1F1A19] text-sm font-semibold mb-1">Early Education</strong>
                 <span>Nursery to Kindergarten emphasizing curiosity, basic numeracy, and communicative confidence.</span>
               </div>
-              <div className="p-3.5 bg-[#FAF8F5] rounded border border-[#E3DCD3]">
-                <strong className="block text-[#111F18] text-sm font-semibold mb-1">Primary to Middle</strong>
+              <div className="p-3 bg-[#F2ECE1] rounded-xs border border-[#E2DDD5]">
+                <strong className="block text-[#1F1A19] text-sm font-semibold mb-1">Primary to Middle</strong>
                 <span>Classes 1 to 8 building core academic discipline and public speaking readiness.</span>
               </div>
-              <div className="p-3.5 bg-[#FAF8F5] rounded border border-[#E3DCD3]">
-                <strong className="block text-[#111F18] text-sm font-semibold mb-1">Secondary (Matric)</strong>
+              <div className="p-3 bg-[#F2ECE1] rounded-xs border border-[#E2DDD5]">
+                <strong className="block text-[#1F1A19] text-sm font-semibold mb-1">Secondary (Matric)</strong>
                 <span>Classes 9 and 10 aligned with Sargodha Board standards preparing students for higher studies.</span>
               </div>
             </div>
@@ -119,10 +126,10 @@ export const AcademicsPage: React.FC<AcademicsPageProps> = ({ onNavClick }) => {
             subtitle="Select a program below to explore stream outlines, curriculum alignment, and board compliance."
           />
 
-          <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-7 items-stretch">
             {/* Interactive Program Selector (5 cols) */}
             <div className="lg:col-span-5 space-y-2 text-left">
-              <span className="block text-xs font-semibold uppercase tracking-wider text-[#65756E] mb-3 px-1">
+              <span className="block text-xs font-semibold uppercase tracking-wider text-[#756A67] mb-2 px-1 font-sans">
                 Choose Intermediate Group
               </span>
 
@@ -135,17 +142,17 @@ export const AcademicsPage: React.FC<AcademicsPageProps> = ({ onNavClick }) => {
                     type="button"
                     onClick={() => setSelectedId(program.id)}
                     className={cn(
-                      'w-full p-4 sm:p-5 rounded-md text-left transition-all duration-200 border flex items-center justify-between group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#133826]',
+                      'w-full p-3.5 sm:p-4 rounded-xs text-left transition-colors duration-150 border flex items-center justify-between group cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#8F0D19]',
                       isSelected
-                        ? 'bg-[#133826] text-white border-[#133826] shadow-sm translate-x-1.5'
-                        : 'bg-[#FAF8F5] hover:bg-white text-[#111F18] border-[#E3DCD3]'
+                        ? 'bg-[#8F0D19] text-white border-[#8F0D19]'
+                        : 'bg-[#FAF7F2] hover:bg-[#F2ECE1] text-[#1F1A19] border-[#E2DDD5]'
                     )}
                   >
                     <div className="flex items-center gap-3">
                       <div
                         className={cn(
-                          'w-10 h-10 rounded font-serif font-bold text-lg flex items-center justify-center shrink-0',
-                          isSelected ? 'bg-white/15 text-[#C88E2E]' : 'bg-white text-[#8D1B2D] border border-[#E3DCD3]'
+                          'w-9 h-9 rounded-xs font-serif font-bold text-sm flex items-center justify-center shrink-0',
+                          isSelected ? 'bg-white/15 text-[#D4AF37]' : 'bg-[#F2ECE1] text-[#8F0D19] border border-[#E2DDD5]'
                         )}
                       >
                         {program.code}
@@ -153,16 +160,16 @@ export const AcademicsPage: React.FC<AcademicsPageProps> = ({ onNavClick }) => {
                       <div>
                         <h4
                           className={cn(
-                            'text-sm font-semibold leading-snug',
-                            isSelected ? 'text-white' : 'text-[#111F18]'
+                            'text-sm font-semibold leading-snug font-sans',
+                            isSelected ? 'text-white' : 'text-[#1F1A19]'
                           )}
                         >
                           {program.title}
                         </h4>
                         <span
                           className={cn(
-                            'text-xs block',
-                            isSelected ? 'text-white/70' : 'text-[#65756E]'
+                            'text-xs block font-sans',
+                            isSelected ? 'text-white/70' : 'text-[#756A67]'
                           )}
                         >
                           {program.level}
@@ -172,8 +179,8 @@ export const AcademicsPage: React.FC<AcademicsPageProps> = ({ onNavClick }) => {
 
                     <ChevronRight
                       className={cn(
-                        'w-5 h-5 transition-transform',
-                        isSelected ? 'text-[#C88E2E] translate-x-0.5' : 'text-[#65756E] opacity-40 group-hover:opacity-100 group-hover:translate-x-0.5'
+                        'w-4 h-4',
+                        isSelected ? 'text-[#D4AF37]' : 'text-[#756A67] opacity-40 group-hover:opacity-100'
                       )}
                     />
                   </button>
@@ -182,53 +189,63 @@ export const AcademicsPage: React.FC<AcademicsPageProps> = ({ onNavClick }) => {
             </div>
 
             {/* Program Profile Canvas (7 cols) */}
-            <div className="lg:col-span-7 bg-[#FAF8F5] border border-[#E3DCD3] rounded-lg p-6 sm:p-8 flex flex-col justify-between shadow-xs text-left">
+            <div className="lg:col-span-7 bg-[#FAF7F2] border border-[#E2DDD5] rounded-xs p-5 sm:p-6 flex flex-col justify-between text-left">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentProgram.id}
-                  initial={{ opacity: 0, y: 6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -6 }}
-                  transition={{ duration: 0.18 }}
-                  className="space-y-6"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.15 }}
+                  className="space-y-4"
                 >
-                  <div className="flex items-center justify-between border-b border-[#E3DCD3] pb-4">
+                  <div className="flex items-center justify-between border-b border-[#E2DDD5] pb-3">
                     <div>
-                      <span className="text-xs uppercase tracking-wider font-semibold text-[#8D1B2D]">
+                      <span className="text-[11px] uppercase tracking-wider font-semibold text-[#8F0D19] font-sans">
                         Group Profile
                       </span>
-                      <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#111F18] mt-1">
+                      <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#1F1A19] mt-0.5">
                         {currentProgram.fullName}
                       </h3>
                     </div>
-                    <div className="p-3 rounded-full bg-white border border-[#E3DCD3] text-[#133826] hidden sm:block">
-                      <BookOpen className="w-6 h-6" />
+                    <div className="p-2 rounded-xs bg-[#F2ECE1] border border-[#E2DDD5] text-[#8F0D19] hidden sm:block">
+                      <BookOpen className="w-5 h-5" />
                     </div>
                   </div>
 
-                  <div className="space-y-4">
-                    <p className="text-base text-[#384640] leading-relaxed">
+                  {/* Program Area Placeholder Image */}
+                  <div className="overflow-hidden rounded-xs border border-[#E2DDD5] bg-[#F2ECE1] aspect-[16/9]">
+                    <img
+                      src={PROGRAM_IMAGES[currentProgram.id] || '/images/placeholders/program-fsc.svg'}
+                      alt={`${currentProgram.title} Program`}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+
+                  <div className="space-y-3 font-sans">
+                    <p className="text-sm text-[#453D3B] leading-relaxed">
                       {currentProgram.summary}
                     </p>
 
-                    <div className="p-4 bg-white rounded border border-[#E3DCD3] space-y-2">
-                      <div className="flex items-center gap-2 text-xs font-semibold text-[#133826]">
-                        <CheckCircle2 className="w-4 h-4 text-[#133826]" />
+                    <div className="p-3 bg-[#FAF7F2] rounded-xs border border-[#E2DDD5] space-y-1">
+                      <div className="flex items-center gap-2 text-xs font-semibold text-[#1D5B56]">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#1D5B56]" />
                         <span>Curriculum & Subject Standards</span>
                       </div>
-                      <p className="text-xs sm:text-sm text-[#525F5A] pl-6">
-                        {currentProgram.curriculumNote} All coursework strictly conforms to the prescribed syllabus issued by the Sargodha Board.
+                      <p className="text-xs text-[#756A67] pl-5">
+                        {currentProgram.curriculumNote} Coursework complies with syllabus issued by the BISE Sargodha Board.
                       </p>
                     </div>
 
                     <div className="grid grid-cols-2 gap-3 text-xs">
-                      <div className="p-3 bg-white rounded border border-[#E3DCD3]">
-                        <span className="block text-[#65756E] font-medium">Examination Body</span>
-                        <strong className="text-[#111F18] font-serif text-sm">{currentProgram.board}</strong>
+                      <div className="p-2.5 bg-[#FAF7F2] rounded-xs border border-[#E2DDD5]">
+                        <span className="block text-[#756A67]">Examination Body</span>
+                        <strong className="text-[#1F1A19] font-serif text-sm">{currentProgram.board}</strong>
                       </div>
-                      <div className="p-3 bg-white rounded border border-[#E3DCD3]">
-                        <span className="block text-[#65756E] font-medium">Program Length</span>
-                        <strong className="text-[#111F18] font-serif text-sm">2 Academic Years</strong>
+                      <div className="p-2.5 bg-[#FAF7F2] rounded-xs border border-[#E2DDD5]">
+                        <span className="block text-[#756A67]">Program Length</span>
+                        <strong className="text-[#1F1A19] font-serif text-sm">2 Academic Years</strong>
                       </div>
                     </div>
                   </div>
@@ -236,9 +253,9 @@ export const AcademicsPage: React.FC<AcademicsPageProps> = ({ onNavClick }) => {
               </AnimatePresence>
 
               {/* Path to Admissions */}
-              <div className="pt-6 mt-6 border-t border-[#E3DCD3] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                <div className="text-xs text-[#525F5A]">
-                  <span>Interested in this group? Meet Principal Ehsanullah Malik to discuss readiness.</span>
+              <div className="pt-4 mt-4 border-t border-[#E2DDD5] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 font-sans">
+                <div className="text-xs text-[#756A67]">
+                  <span>Meet Principal Ehsanullah Malik directly for enrollment.</span>
                 </div>
                 <PrimaryCta
                   size="sm"
@@ -255,14 +272,14 @@ export const AcademicsPage: React.FC<AcademicsPageProps> = ({ onNavClick }) => {
       </Section>
 
       {/* Academic Quality Banner */}
-      <Section variant="sandstone" spacing="md">
+      <Section variant="alt" spacing="md">
         <Container>
-          <div className="max-w-4xl mx-auto p-6 bg-white border border-[#E3DCD3] rounded-lg text-center space-y-4">
-            <Award className="w-8 h-8 text-[#C88E2E] mx-auto" />
-            <h3 className="font-serif text-2xl font-bold text-[#111F18]">
+          <div className="max-w-4xl mx-auto p-5 bg-[#FAF7F2] border border-[#E2DDD5] rounded-xs text-center space-y-3 font-sans">
+            <Award className="w-6 h-6 text-[#8F0D19] mx-auto" />
+            <h3 className="font-serif text-xl font-bold text-[#1F1A19]">
               Standardized Excellence Aligned with BISE Sargodha
             </h3>
-            <p className="text-sm sm:text-base text-[#384640] max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#453D3B] max-w-2xl mx-auto leading-relaxed">
               From science laboratories to library study spaces, Noble Science College delivers the complete curriculum as per standard course requirements for each academic group.
             </p>
           </div>

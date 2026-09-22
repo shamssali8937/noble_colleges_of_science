@@ -17,7 +17,7 @@ export const PrimaryCta: React.FC<PrimaryCtaProps> = ({
     <Button
       variant="primary"
       size="md"
-      className={cn('font-semibold shadow-xs', className)}
+      className={cn('font-semibold', className)}
       rightIcon={iconType === 'arrow' ? <ArrowRight className="w-4 h-4" /> : undefined}
       leftIcon={iconType === 'phone' ? <Phone className="w-4 h-4" /> : undefined}
       {...props}
@@ -43,7 +43,7 @@ export const SecondaryCta: React.FC<SecondaryCtaProps> = ({
       size="md"
       className={cn('font-medium', className)}
       rightIcon={iconType === 'arrow' ? <ArrowRight className="w-4 h-4" /> : undefined}
-      leftIcon={iconType === 'phone' ? <Phone className="w-4 h-4 text-[#8D1B2D]" /> : undefined}
+      leftIcon={iconType === 'phone' ? <Phone className="w-4 h-4 text-[#8F0D19]" /> : undefined}
       {...props}
     >
       {children}

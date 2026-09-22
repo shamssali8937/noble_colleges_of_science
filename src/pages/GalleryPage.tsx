@@ -12,6 +12,7 @@ interface GalleryItem {
   category: string
   description: string
   aspectRatio: string
+  image: string
 }
 
 interface GalleryPageProps {
@@ -32,6 +33,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ onNavClick }) => {
       category: 'College Building',
       description: 'The exterior campus building and main gates located near Old Musa Khel Road, Wan Bhachran.',
       aspectRatio: 'aspect-[16/10]',
+      image: '/images/placeholders/gallery-building-1.svg',
     },
     {
       id: 'classrooms-1',
@@ -39,6 +41,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ onNavClick }) => {
       category: 'Classrooms',
       description: 'Well-ventilated learning environments structured for focused lecture delivery and student engagement.',
       aspectRatio: 'aspect-[4/3]',
+      image: '/images/placeholders/gallery-classroom-1.svg',
     },
     {
       id: 'labs-1',
@@ -46,6 +49,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ onNavClick }) => {
       category: 'Laboratories',
       description: 'Specialized lab setups for practical science syllabus demonstrations and experiments.',
       aspectRatio: 'aspect-[4/3]',
+      image: '/images/placeholders/gallery-lab-1.svg',
     },
     {
       id: 'library-1',
@@ -53,6 +57,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ onNavClick }) => {
       category: 'Library',
       description: 'Curated board textbooks, reference literature, and quiet individual student study spaces.',
       aspectRatio: 'aspect-[16/10]',
+      image: '/images/placeholders/gallery-library-1.svg',
     },
     {
       id: 'events-1',
@@ -60,6 +65,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ onNavClick }) => {
       category: 'Events & Student Activities',
       description: 'Student assemblies, public speaking exercises, and character-building co-curricular events.',
       aspectRatio: 'aspect-[4/3]',
+      image: '/images/placeholders/gallery-events-1.svg',
     },
     {
       id: 'awards-1',
@@ -67,6 +73,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ onNavClick }) => {
       category: 'Awards & Achievements',
       description: 'Commemoration of student academic milestones and Sargodha Board examination achievements.',
       aspectRatio: 'aspect-[4/3]',
+      image: '/images/placeholders/gallery-awards-1.svg',
     },
   ]
 
@@ -112,16 +119,16 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ onNavClick }) => {
       <Section variant="white" spacing="md" hasBorderBottom>
         <Container>
           {/* SRS Status Notice */}
-          <div className="max-w-4xl mx-auto p-4 sm:p-5 bg-[#FAF8F5] border border-[#E3DCD3] rounded-lg mb-8 text-left flex items-start gap-3">
-            <Camera className="w-5 h-5 text-[#8D1B2D] shrink-0 mt-0.5" />
-            <div className="text-xs sm:text-sm text-[#384640] leading-relaxed">
-              <strong className="block text-[#111F18] font-semibold">SRS Media Protocol Notice:</strong>
-              As indicated in SRS Section 5, official photographs are scheduled for provision at a later stage. The gallery below reflects the authenticated categories ready for seamless image population without synthetic stock photos.
+          <div className="max-w-4xl mx-auto p-3.5 sm:p-4 bg-[#FAF7F2] border border-[#E2DDD5] rounded-xs mb-8 text-left flex items-start gap-3">
+            <Camera className="w-5 h-5 text-[#8F0D19] shrink-0 mt-0.5" />
+            <div className="text-xs sm:text-sm text-[#453D3B] leading-relaxed font-sans">
+              <strong className="block text-[#1F1A19] font-semibold">SRS Media Protocol Notice:</strong>
+              As indicated in SRS Section 5, official photographs are scheduled for provision at a later stage. The gallery below reflects the authenticated categories populated with institutional placeholders ready for photo replacement.
             </div>
           </div>
 
           {/* Category Filter Tabs */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+          <div className="flex flex-wrap items-center justify-center gap-1.5 mb-8">
             {categories.map((category) => {
               const isSelected = selectedCategory === category
               return (
@@ -130,10 +137,10 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ onNavClick }) => {
                   type="button"
                   onClick={() => setSelectedCategory(category)}
                   className={cn(
-                    'px-4 py-2 rounded-full text-xs font-medium transition-all duration-150 cursor-pointer border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#133826]',
+                    'px-3 py-1 rounded-xs text-xs font-medium transition-colors cursor-pointer border font-sans',
                     isSelected
-                      ? 'bg-[#133826] text-white border-[#133826] shadow-xs'
-                      : 'bg-[#FAF8F5] hover:bg-white text-[#384640] border-[#E3DCD3]'
+                      ? 'bg-[#8F0D19] text-white border-[#8F0D19]'
+                      : 'bg-[#FAF7F2] hover:bg-[#F2ECE1] text-[#453D3B] border-[#E2DDD5]'
                   )}
                 >
                   {category}
@@ -143,42 +150,45 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ onNavClick }) => {
           </div>
 
           {/* Gallery Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto text-left">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto text-left">
             {filteredSlots.map((item) => (
               <div
                 key={item.id}
                 onClick={() => setActiveModalItem(item)}
-                className="bg-[#FAF8F5] border border-[#E3DCD3] rounded-lg overflow-hidden shadow-xs hover:shadow-md transition-all duration-200 cursor-pointer group flex flex-col justify-between"
+                className="bg-[#FAF7F2] border border-[#E2DDD5] rounded-xs overflow-hidden cursor-pointer group flex flex-col justify-between"
               >
                 {/* Visual Slot */}
                 <div
                   className={cn(
-                    'w-full bg-white border-b border-dashed border-[#E3DCD3] flex flex-col items-center justify-center p-6 text-center group-hover:bg-[#FAF8F5] transition-colors',
+                    'w-full bg-[#F2ECE1] border-b border-[#E2DDD5] overflow-hidden',
                     item.aspectRatio
                   )}
                 >
-                  <div className="p-3.5 rounded-full bg-[#FAF8F5] border border-[#E3DCD3] text-[#133826] group-hover:scale-110 transition-transform mb-3">
-                    <Camera className="w-6 h-6" />
-                  </div>
-                  <span className="font-serif font-bold text-base text-[#111F18] px-4">
-                    {item.title}
-                  </span>
-                  <span className="text-xs text-[#8D1B2D] font-medium mt-1">
-                    {item.category}
-                  </span>
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
                 </div>
 
                 {/* Caption Strip */}
-                <div className="p-4 space-y-1 bg-white">
-                  <p className="text-xs text-[#525F5A] line-clamp-2">
+                <div className="p-3.5 space-y-1 bg-[#FAF7F2] font-sans">
+                  <span className="text-[11px] text-[#8F0D19] font-semibold block uppercase tracking-wider">
+                    {item.category}
+                  </span>
+                  <h4 className="font-serif font-bold text-sm text-[#1F1A19]">
+                    {item.title}
+                  </h4>
+                  <p className="text-xs text-[#756A67] line-clamp-2 pt-0.5">
                     {item.description}
                   </p>
-                  <div className="pt-2 flex items-center justify-between text-[11px] text-[#65756E]">
-                    <span className="font-medium text-[#133826] inline-flex items-center gap-1">
-                      <Sparkles className="w-3 h-3 text-[#C88E2E]" />
+                  <div className="pt-2 flex items-center justify-between text-[11px] text-[#756A67]">
+                    <span className="font-medium text-[#1D5B56] inline-flex items-center gap-1">
+                      <Sparkles className="w-3 h-3 text-[#1D5B56]" />
                       SRS Category
                     </span>
-                    <span className="group-hover:text-[#133826] underline font-medium">Click to inspect</span>
+                    <span className="group-hover:text-[#8F0D19] underline font-medium">Inspect media slot</span>
                   </div>
                 </div>
               </div>
@@ -191,42 +201,49 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ onNavClick }) => {
       {activeModalItem && (
         <div
           onClick={() => setActiveModalItem(null)}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0E2A1C]/80 backdrop-blur-xs"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#1A0C0E]/80 backdrop-blur-xs"
           role="dialog"
           aria-modal="true"
           aria-label={activeModalItem.title}
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-2xl bg-white rounded-lg border border-[#E3DCD3] shadow-2xl p-6 sm:p-8 space-y-4 text-left"
+            className="relative w-full max-w-2xl bg-[#FAF7F2] rounded-xs border border-[#E2DDD5] p-5 sm:p-6 space-y-3.5 text-left font-sans"
           >
             {/* Close Button */}
             <button
               type="button"
               onClick={() => setActiveModalItem(null)}
-              className="absolute top-4 right-4 min-w-[44px] min-h-[44px] inline-flex items-center justify-center p-2 text-[#525F5A] hover:text-[#111F18] hover:bg-[#FAF8F5] rounded-full transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#133826]"
+              className="absolute top-3 right-3 min-w-[36px] min-h-[36px] inline-flex items-center justify-center p-1.5 text-[#756A67] hover:text-[#1F1A19] hover:bg-[#F2ECE1] rounded-xs transition-colors cursor-pointer"
               aria-label="Close image preview"
             >
               <X className="w-5 h-5" />
             </button>
 
             {/* Modal Content */}
-            <div className="aspect-[16/10] bg-[#FAF8F5] rounded-md border border-dashed border-[#E3DCD3] flex flex-col items-center justify-center text-center p-6">
-              <Camera className="w-12 h-12 text-[#133826] mb-3" />
-              <h3 className="font-serif text-xl font-bold text-[#111F18]">
-                {activeModalItem.title}
-              </h3>
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#8D1B2D] mt-1">
+            <div className="aspect-[16/10] bg-[#F2ECE1] rounded-xs border border-[#E2DDD5] overflow-hidden">
+              <img
+                src={activeModalItem.image}
+                alt={activeModalItem.title}
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            <div className="space-y-1">
+              <span className="text-xs font-semibold uppercase tracking-wider text-[#8F0D19] block">
                 Category: {activeModalItem.category}
               </span>
-              <p className="text-xs text-[#525F5A] mt-2 max-w-md">
+              <h3 className="font-serif text-lg font-bold text-[#1F1A19]">
+                {activeModalItem.title}
+              </h3>
+              <p className="text-xs text-[#756A67]">
                 {activeModalItem.description}
               </p>
             </div>
 
-            <div className="border-t border-[#E3DCD3] pt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-[#65756E]">
+            <div className="border-t border-[#E2DDD5] pt-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs text-[#756A67]">
               <span>Use arrow keys to navigate • Esc to dismiss</span>
-              <span className="font-semibold text-[#133826]">Noble Science College Wan Bhachran</span>
+              <span className="font-semibold text-[#8F0D19]">Noble Science College Wan Bhachran</span>
             </div>
           </div>
         </div>

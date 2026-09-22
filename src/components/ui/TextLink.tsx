@@ -4,7 +4,7 @@ import { ArrowRight, ExternalLink } from 'lucide-react'
 
 export interface TextLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string
-  variant?: 'pine' | 'crimson' | 'muted' | 'light'
+  variant?: 'maroon' | 'teal' | 'muted' | 'light'
   showArrow?: boolean
   isExternal?: boolean
   className?: string
@@ -13,7 +13,7 @@ export interface TextLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElem
 
 export const TextLink: React.FC<TextLinkProps> = ({
   href,
-  variant = 'pine',
+  variant = 'maroon',
   showArrow = false,
   isExternal = false,
   className,
@@ -21,10 +21,10 @@ export const TextLink: React.FC<TextLinkProps> = ({
   ...props
 }) => {
   const variantStyles = {
-    pine: 'text-[#133826] hover:text-[#0E2A1C] underline-offset-4 decoration-[#133826]/40 hover:decoration-[#133826]',
-    crimson: 'text-[#8D1B2D] hover:text-[#741725] underline-offset-4 decoration-[#8D1B2D]/40 hover:decoration-[#8D1B2D]',
-    muted: 'text-[#525F5A] hover:text-[#111F18] underline-offset-4 decoration-[#525F5A]/40 hover:decoration-[#111F18]',
-    light: 'text-white/90 hover:text-white underline-offset-4 decoration-white/40 hover:decoration-white',
+    maroon: 'text-[#8F0D19] hover:text-[#6F0A13] underline-offset-4 decoration-[#8F0D19]/40 hover:decoration-[#8F0D19]',
+    teal: 'text-[#1D5B56] hover:text-[#14423E] underline-offset-4 decoration-[#1D5B56]/40 hover:decoration-[#1D5B56]',
+    muted: 'text-[#736865] hover:text-[#1F1A19] underline-offset-4 decoration-[#736865]/40 hover:decoration-[#1F1A19]',
+    light: 'text-[#FAF7F2]/90 hover:text-white underline-offset-4 decoration-white/40 hover:decoration-white',
   }
 
   return (
@@ -33,7 +33,7 @@ export const TextLink: React.FC<TextLinkProps> = ({
       target={isExternal ? '_blank' : undefined}
       rel={isExternal ? 'noopener noreferrer' : undefined}
       className={cn(
-        'inline-flex items-center gap-1 font-medium underline transition-colors group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#133826] rounded-xs',
+        'inline-flex items-center gap-1 font-medium underline transition-colors group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8F0D19] rounded-xs',
         variantStyles[variant],
         className
       )}

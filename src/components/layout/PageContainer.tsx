@@ -14,11 +14,11 @@ export const PageContainer: React.FC<PageContainerProps> = ({
   children,
 }) => {
   return (
-    <div className="min-h-screen flex flex-col bg-[#FAF8F5] text-[#111F18] selection:bg-[#133826] selection:text-white">
+    <div className="min-h-screen flex flex-col bg-[#FAF7F2] text-[#1F1A19] selection:bg-[#8F0D19] selection:text-white">
       {/* Skip to Main Content Link for Keyboard Accessibility */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#133826] focus:text-white focus:rounded-md focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#C88E2E]"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#8F0D19] focus:text-white focus:rounded-xs focus:outline-none focus:ring-2 focus:ring-[#8F0D19]"
       >
         Skip to main content
       </a>

@@ -19,26 +19,24 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
   onHomeClick,
 }) => {
   return (
-    <div className="bg-[#FAF8F5] border-b border-[#E3DCD3] pt-10 pb-12 sm:pt-14 sm:pb-16 text-left relative overflow-hidden">
-      <div className="absolute top-0 right-1/4 w-px h-full bg-[#E3DCD3]/50 pointer-events-none" />
-      
-      <Container className="relative z-10 space-y-4">
+    <div className="bg-[#FAF7F2] border-b border-[#E2DDD5] pt-10 pb-12 sm:pt-12 sm:pb-14 text-left relative overflow-hidden">
+      <Container className="relative z-10 space-y-3.5">
         {/* Breadcrumb Navigation */}
-        <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs text-[#65756E]">
+        <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs text-[#756A67] font-sans">
           <button
             type="button"
             onClick={onHomeClick}
-            className="hover:text-[#133826] transition-colors cursor-pointer"
+            className="hover:text-[#8F0D19] transition-colors cursor-pointer"
           >
             Home
           </button>
           <ChevronRight className="w-3.5 h-3.5 opacity-60" />
-          <span className="font-semibold text-[#133826]">{breadcrumb}</span>
+          <span className="font-semibold text-[#8F0D19]">{breadcrumb}</span>
         </nav>
 
         {/* Kicker Badge */}
         <div>
-          <span className="inline-block text-xs font-semibold uppercase tracking-wider text-[#8D1B2D] px-3 py-1 rounded bg-[#8D1B2D]/10 border border-[#8D1B2D]/20">
+          <span className="inline-block text-xs font-semibold uppercase tracking-wider text-[#8F0D19] px-2.5 py-0.5 rounded-xs bg-[#8F0D19]/10 border border-[#8F0D19]/20 font-sans">
             {kicker}
           </span>
         </div>
@@ -48,7 +46,7 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
           <Heading as="h1" size="display" tone="default">
             {title}
           </Heading>
-          <p className="text-base sm:text-lg text-[#384640] max-w-2xl font-sans leading-relaxed">
+          <p className="text-base sm:text-lg text-[#453D3B] max-w-2xl font-sans leading-relaxed">
             {subtitle}
           </p>
         </div>

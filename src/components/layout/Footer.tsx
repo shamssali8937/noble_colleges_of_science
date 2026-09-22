@@ -10,17 +10,17 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ onNavClick }) => {
   return (
-    <footer className="bg-[#0E2A1C] text-white border-t border-[#1A4230]" role="contentinfo">
+    <footer className="bg-[#1A0C0E] text-[#FAF7F2] border-t border-[#2D1B1E]" role="contentinfo">
       {/* Upper Collegiate Anchor */}
       <div className="py-12 sm:py-16 border-b border-white/10">
         <Container>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 text-left">
             {/* Column 1: Institutional Identity (5 cols) */}
             <div className="lg:col-span-5 space-y-4">
               <CollegeLogo variant="light" />
 
-              <p className="text-white/80 text-sm leading-relaxed max-w-md pt-2">
-                Established in 2009 by Principal Ehsanullah Malik in Wan Bhachran to provide quality education to ordinary students. Dedicated to building students' confidence, developing public speaking, and shaping good human beings into a true <span className="text-white font-medium italic">"heaven of knowledge."</span>
+              <p className="text-[#FAF7F2]/80 text-sm leading-relaxed max-w-md pt-2">
+                Established in 2009 by Principal Ehsanullah Malik in Wan Bhachran to provide quality education to ordinary students. Dedicated to building students' confidence, developing public speaking, and shaping good human beings into a true <span className="text-white font-serif italic">"heaven of knowledge."</span>
               </p>
 
               <div className="flex items-center gap-2 pt-2 text-xs text-[#C88E2E] font-medium">
@@ -43,7 +43,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick }) => {
                         e.preventDefault()
                         onNavClick(item.href)
                       }}
-                      className="text-white/70 hover:text-white transition-colors duration-150 inline-block focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white rounded-xs"
+                      className="text-[#FAF7F2]/70 hover:text-white transition-colors duration-150 inline-block focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#8F0D19] rounded-xs"
                     >
                       {item.label}
                     </a>
@@ -58,7 +58,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick }) => {
                 Campus & Contact
               </h3>
 
-              <div className="space-y-3 text-sm text-white/80">
+              <div className="space-y-3 text-sm text-[#FAF7F2]/80">
                 <div className="flex items-start gap-3">
                   <MapPin className="w-4 h-4 text-[#C88E2E] shrink-0 mt-1" />
                   <div>
@@ -88,7 +88,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick }) => {
                       href="https://www.facebook.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-white/90 hover:text-white underline underline-offset-2 font-urdu block pt-0.5"
+                      className="text-[#FAF7F2]/90 hover:text-white underline underline-offset-2 font-urdu block pt-0.5"
                     >
                       نوبل سائنس کالج واں بھچراں
                     </a>
@@ -97,7 +97,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick }) => {
               </div>
 
               <div className="pt-2">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm bg-white/5 border border-white/10 text-xs text-white/80">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xs bg-white/5 border border-white/10 text-xs text-[#FAF7F2]/80">
                   <ShieldCheck className="w-3.5 h-3.5 text-[#C88E2E]" />
                   <span>Admissions open to all • No entry test</span>
                 </div>
@@ -108,12 +108,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick }) => {
       </div>
 
       {/* Bottom Bar: Copyright & Attribution */}
-      <div className="py-5 bg-[#081B11] text-xs text-white/60">
+      <div className="py-5 bg-[#12080A] text-xs text-[#FAF7F2]/60">
         <Container className="flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
           <div>
             © {new Date().getFullYear()} Noble Science College, Wan Bhachran. All rights reserved.
           </div>
-          <div className="flex items-center gap-3 text-white/50 text-[11px]">
+          <div className="flex items-center gap-3 text-[#FAF7F2]/50 text-[11px]">
             <span>Nursery to Class 12</span>
             <span>•</span>
             <span>F.Sc | ICS | I.Com | Arts</span>

@@ -3,24 +3,61 @@ import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
 import { SectionHeader } from '@/components/ui/Heading'
 import { COLLEGE_DATA } from '@/data/collegeData'
-import { Image as ImageIcon, Camera } from 'lucide-react'
+import { Image as ImageIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
+
+const GALLERY_ITEMS = [
+  {
+    category: 'Building & Campus',
+    image: '/images/placeholders/gallery-building-1.svg',
+    caption: 'Noble Science College Campus Grounds',
+  },
+  {
+    category: 'Classrooms',
+    image: '/images/placeholders/gallery-classroom-1.svg',
+    caption: 'Academic Lecture & Theory Rooms',
+  },
+  {
+    category: 'Laboratories',
+    image: '/images/placeholders/gallery-lab-1.svg',
+    caption: 'Science & Computer Practical Labs',
+  },
+  {
+    category: 'Library',
+    image: '/images/placeholders/gallery-library-1.svg',
+    caption: 'Reference & Study Reading Area',
+  },
+  {
+    category: 'Events & Assemblies',
+    image: '/images/placeholders/gallery-events-1.svg',
+    caption: 'College Assembly & Debate Gatherings',
+  },
+  {
+    category: 'Student Achievements',
+    image: '/images/placeholders/gallery-awards-1.svg',
+    caption: 'Academic Recognition & Certificates',
+  },
+]
 
 export const GallerySection: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('All')
   const categories = ['All', ...COLLEGE_DATA.galleryCategories]
 
+  const filteredItems = GALLERY_ITEMS.filter(
+    (item) => activeCategory === 'All' || item.category === activeCategory
+  )
+
   return (
-    <Section id="gallery" variant="sandstone" spacing="md" hasBorderBottom>
+    <Section id="gallery" variant="alt" spacing="lg" hasBorderBottom>
       <Container>
         <SectionHeader
           kicker="Campus Photography"
-          title="Media Archive & Categories"
+          title="Media Archive & Facilities"
           subtitle="Designated media architecture for Noble Science College as specified in the official requirements."
         />
 
         {/* Filter Tabs for the 6 SRS Categories */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
+        <div className="flex flex-wrap items-center justify-center gap-1.5 mb-8">
           {categories.map((cat) => {
             const isSelected = activeCategory === cat
             return (
@@ -29,10 +66,10 @@ export const GallerySection: React.FC = () => {
                 type="button"
                 onClick={() => setActiveCategory(cat)}
                 className={cn(
-                  'px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-150 cursor-pointer border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#133826]',
+                  'px-3 py-1 rounded-xs text-xs font-medium transition-colors cursor-pointer border font-sans',
                   isSelected
-                    ? 'bg-[#133826] text-white border-[#133826] shadow-xs'
-                    : 'bg-white hover:bg-[#FAF8F5] text-[#384640] border-[#E3DCD3]'
+                    ? 'bg-[#8F0D19] text-white border-[#8F0D19]'
+                    : 'bg-[#FAF7F2] hover:bg-[#F2ECE1] text-[#453D3B] border-[#E2DDD5]'
                 )}
               >
                 {cat}
@@ -41,41 +78,36 @@ export const GallerySection: React.FC = () => {
           })}
         </div>
 
-        {/* Structured Category Slots */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto text-left">
-          {COLLEGE_DATA.galleryCategories
-            .filter((cat) => activeCategory === 'All' || activeCategory === cat)
-            .map((category) => (
-              <div
-                key={category}
-                className="bg-white border border-[#E3DCD3] rounded-lg p-5 shadow-xs flex flex-col justify-between"
-              >
-                {/* Visual Placeholder Slot */}
-                <div className="aspect-[4/3] rounded bg-[#FAF8F5] border border-dashed border-[#E3DCD3] flex flex-col items-center justify-center p-4 text-center">
-                  <div className="p-3 rounded-full bg-white shadow-xs text-[#133826] mb-2">
-                    <Camera className="w-6 h-6" />
-                  </div>
-                  <span className="font-serif font-semibold text-sm text-[#111F18]">
-                    {category}
-                  </span>
-                  <span className="text-[11px] text-[#65756E] mt-1">
-                    Photography slot active
-                  </span>
-                </div>
-
-                <div className="pt-4 mt-2 border-t border-[#E3DCD3] flex items-center justify-between text-xs">
-                  <span className="text-[#65756E]">{category}</span>
-                  <span className="text-[#133826] font-medium inline-flex items-center gap-1">
-                    <ImageIcon className="w-3.5 h-3.5" />
-                    SRS Category
-                  </span>
-                </div>
+        {/* Structured Gallery Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto text-left">
+          {filteredItems.map((item, idx) => (
+            <div
+              key={idx}
+              className="bg-[#FAF7F2] border border-[#E2DDD5] rounded-xs p-3.5 flex flex-col justify-between"
+            >
+              {/* Visual Placeholder Slot */}
+              <div className="aspect-[4/3] rounded-xs bg-[#F2ECE1] border border-[#E2DDD5] overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.caption}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
               </div>
-            ))}
+
+              <div className="pt-3 border-t border-[#E2DDD5] mt-3 flex items-center justify-between text-xs font-sans">
+                <span className="font-medium text-[#1F1A19]">{item.category}</span>
+                <span className="text-[#8F0D19] text-[11px] font-semibold inline-flex items-center gap-1">
+                  <ImageIcon className="w-3 h-3" />
+                  SRS Media Slot
+                </span>
+              </div>
+            </div>
+          ))}
         </div>
 
-        <p className="mt-8 text-xs text-[#65756E] text-center max-w-xl mx-auto">
-          Campus media will be uploaded as official photographs for building, classrooms, laboratories, library, student events, and awards become available.
+        <p className="mt-8 text-xs text-[#756A67] text-center max-w-xl mx-auto font-sans">
+          Campus media slots are structured for official photographs of campus buildings, classrooms, laboratories, library, events, and student awards.
         </p>
       </Container>
     </Section>

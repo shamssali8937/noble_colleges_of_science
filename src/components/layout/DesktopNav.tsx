@@ -24,10 +24,10 @@ export const DesktopNav: React.FC<DesktopNavProps> = ({ activeId, onNavClick }) 
               onNavClick(item.href)
             }}
             className={cn(
-              'relative px-3 py-2 text-sm font-sans font-medium transition-all duration-150 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#133826]',
+              'relative px-3 py-1.5 text-sm font-sans font-medium transition-colors rounded-xs focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#8F0D19]',
               isActive
-                ? 'text-[#133826] font-semibold bg-[#133826]/5'
-                : 'text-[#384640] hover:text-[#133826] hover:bg-[#133826]/5'
+                ? 'text-[#8F0D19] font-semibold bg-[#8F0D19]/8'
+                : 'text-[#453D3B] hover:text-[#8F0D19] hover:bg-[#8F0D19]/5'
             )}
             aria-current={isActive ? 'page' : undefined}
           >
@@ -36,7 +36,7 @@ export const DesktopNav: React.FC<DesktopNavProps> = ({ activeId, onNavClick }) 
             {isActive && (
               <motion.span
                 layoutId="activeNavIndicator"
-                className="absolute bottom-0 left-2.5 right-2.5 h-[2.5px] bg-[#8D1B2D] rounded-full"
+                className="absolute bottom-0 left-2 right-2 h-[2px] bg-[#8F0D19]"
                 transition={{ type: 'spring', stiffness: 400, damping: 35 }}
               />
             )}
