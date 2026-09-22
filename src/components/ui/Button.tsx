@@ -43,7 +43,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     }
 
     const sizeStyles = {
-      sm: 'text-sm min-h-[38px] px-3.5 py-1.5 gap-1.5',
+      sm: 'text-sm min-h-[44px] sm:min-h-[38px] px-3.5 py-1.5 gap-1.5',
       md: 'text-sm md:text-base min-h-[44px] px-5 py-2.5 gap-2',
       lg: 'text-base min-h-[50px] px-6 py-3 gap-2.5',
     }

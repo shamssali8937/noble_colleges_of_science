@@ -190,17 +190,21 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ onNavClick }) => {
       {/* Lightbox / Modal for Preview */}
       {activeModalItem && (
         <div
+          onClick={() => setActiveModalItem(null)}
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0E2A1C]/80 backdrop-blur-xs"
           role="dialog"
           aria-modal="true"
           aria-label={activeModalItem.title}
         >
-          <div className="relative w-full max-w-2xl bg-white rounded-lg border border-[#E3DCD3] shadow-2xl p-6 sm:p-8 space-y-4 text-left">
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative w-full max-w-2xl bg-white rounded-lg border border-[#E3DCD3] shadow-2xl p-6 sm:p-8 space-y-4 text-left"
+          >
             {/* Close Button */}
             <button
               type="button"
               onClick={() => setActiveModalItem(null)}
-              className="absolute top-4 right-4 p-2 text-[#525F5A] hover:text-[#111F18] hover:bg-[#FAF8F5] rounded-full transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#133826]"
+              className="absolute top-4 right-4 min-w-[44px] min-h-[44px] inline-flex items-center justify-center p-2 text-[#525F5A] hover:text-[#111F18] hover:bg-[#FAF8F5] rounded-full transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#133826]"
               aria-label="Close image preview"
             >
               <X className="w-5 h-5" />

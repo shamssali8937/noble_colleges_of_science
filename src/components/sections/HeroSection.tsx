@@ -52,23 +52,25 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavClick }) => {
             </p>
 
             {/* Action Triggers */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3 pt-2">
               <PrimaryCta
                 iconType="arrow"
                 onClick={() => onNavClick('#admissions')}
+                className="w-full sm:w-auto justify-center"
               >
                 Admission Guidance
               </PrimaryCta>
 
               <SecondaryCta
                 onClick={() => onNavClick('#academics')}
+                className="w-full sm:w-auto justify-center"
               >
                 Academic Programs
               </SecondaryCta>
 
               <a
                 href="tel:03336831370"
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-md text-sm font-semibold text-[#133826] bg-[#133826]/5 hover:bg-[#133826]/10 border border-[#133826]/15 transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-md text-sm font-semibold text-[#133826] bg-[#133826]/5 hover:bg-[#133826]/10 border border-[#133826]/15 transition-colors w-full sm:w-auto min-h-[44px]"
                 title="Call College Directly"
               >
                 <Phone className="w-4 h-4 text-[#8D1B2D]" />
@@ -77,16 +79,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavClick }) => {
             </div>
 
             {/* Key Facts Pill Strip from SRS */}
-            <div className="pt-4 border-t border-[#E3DCD3] grid grid-cols-2 sm:grid-cols-3 gap-4">
-              <div>
+            <div className="pt-4 border-t border-[#E3DCD3] grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+              <div className="p-2.5 sm:p-0 bg-[#FAF8F5] sm:bg-transparent rounded sm:rounded-none border sm:border-0 border-[#E3DCD3]">
                 <span className="block text-xs uppercase tracking-wider text-[#65756E] font-medium">Classes</span>
                 <span className="font-serif text-base font-semibold text-[#111F18]">{COLLEGE_DATA.classesOffered}</span>
               </div>
-              <div>
+              <div className="p-2.5 sm:p-0 bg-[#FAF8F5] sm:bg-transparent rounded sm:rounded-none border sm:border-0 border-[#E3DCD3]">
                 <span className="block text-xs uppercase tracking-wider text-[#65756E] font-medium">Programs</span>
                 <span className="font-serif text-base font-semibold text-[#111F18]">F.Sc • ICS • I.Com • Arts</span>
               </div>
-              <div>
+              <div className="p-2.5 sm:p-0 bg-[#FAF8F5] sm:bg-transparent rounded sm:rounded-none border sm:border-0 border-[#E3DCD3]">
                 <span className="block text-xs uppercase tracking-wider text-[#65756E] font-medium">Admissions</span>
                 <span className="font-serif text-base font-semibold text-[#8D1B2D]">Open • No Entry Test</span>
               </div>

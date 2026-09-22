@@ -5,6 +5,7 @@ import { SectionHeader } from '@/components/ui/Heading'
 import { COLLEGE_DATA, type AcademicProgram } from '@/data/collegeData'
 import { Award, BookOpen, GraduationCap, ChevronRight, CheckCircle2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { motion, AnimatePresence } from 'motion/react'
 
 export const AcademicsSection: React.FC = () => {
   const [selectedProgramId, setSelectedProgramId] = useState<string>('fsc')
@@ -112,48 +113,57 @@ export const AcademicsSection: React.FC = () => {
 
           {/* Right Column: Detailed Program Profile (7 cols) */}
           <div className="lg:col-span-7 bg-white border border-[#E3DCD3] rounded-lg p-6 sm:p-8 flex flex-col justify-between shadow-xs">
-            <div className="space-y-5 text-left">
-              <div className="flex items-center justify-between border-b border-[#E3DCD3] pb-4">
-                <div>
-                  <span className="text-xs uppercase tracking-wider font-semibold text-[#8D1B2D]">
-                    Program Specification
-                  </span>
-                  <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#111F18] mt-0.5">
-                    {activeProgram.fullName}
-                  </h3>
-                </div>
-                <div className="p-2.5 rounded-full bg-[#FAF8F5] border border-[#E3DCD3] text-[#133826] hidden sm:block">
-                  <BookOpen className="w-6 h-6" />
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <p className="text-base text-[#384640] leading-relaxed">
-                  {activeProgram.summary}
-                </p>
-
-                <div className="p-4 bg-[#FAF8F5] rounded border border-[#E3DCD3] space-y-2">
-                  <div className="flex items-center gap-2 text-xs font-semibold text-[#133826]">
-                    <CheckCircle2 className="w-4 h-4 text-[#133826]" />
-                    <span>Curriculum Structure</span>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeProgram.id}
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -6 }}
+                transition={{ duration: 0.18 }}
+                className="space-y-5 text-left"
+              >
+                <div className="flex items-center justify-between border-b border-[#E3DCD3] pb-4">
+                  <div>
+                    <span className="text-xs uppercase tracking-wider font-semibold text-[#8D1B2D]">
+                      Program Specification
+                    </span>
+                    <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#111F18] mt-0.5">
+                      {activeProgram.fullName}
+                    </h3>
                   </div>
-                  <p className="text-xs sm:text-sm text-[#525F5A] pl-6 font-medium">
-                    {activeProgram.curriculumNote}
+                  <div className="p-2.5 rounded-full bg-[#FAF8F5] border border-[#E3DCD3] text-[#133826] hidden sm:block">
+                    <BookOpen className="w-6 h-6" />
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <p className="text-base text-[#384640] leading-relaxed">
+                    {activeProgram.summary}
                   </p>
-                </div>
 
-                <div className="grid grid-cols-2 gap-3 pt-2 text-xs">
-                  <div className="p-3 bg-white rounded border border-[#E3DCD3]">
-                    <span className="block text-[#65756E]">Affiliation</span>
-                    <strong className="text-[#111F18]">{activeProgram.board}</strong>
+                  <div className="p-4 bg-[#FAF8F5] rounded border border-[#E3DCD3] space-y-2">
+                    <div className="flex items-center gap-2 text-xs font-semibold text-[#133826]">
+                      <CheckCircle2 className="w-4 h-4 text-[#133826]" />
+                      <span>Curriculum Structure</span>
+                    </div>
+                    <p className="text-xs sm:text-sm text-[#525F5A] pl-6 font-medium">
+                      {activeProgram.curriculumNote}
+                    </p>
                   </div>
-                  <div className="p-3 bg-white rounded border border-[#E3DCD3]">
-                    <span className="block text-[#65756E]">Duration</span>
-                    <strong className="text-[#111F18]">2 Academic Years</strong>
+
+                  <div className="grid grid-cols-2 gap-3 pt-2 text-xs">
+                    <div className="p-3 bg-white rounded border border-[#E3DCD3]">
+                      <span className="block text-[#65756E]">Affiliation</span>
+                      <strong className="text-[#111F18]">{activeProgram.board}</strong>
+                    </div>
+                    <div className="p-3 bg-white rounded border border-[#E3DCD3]">
+                      <span className="block text-[#65756E]">Duration</span>
+                      <strong className="text-[#111F18]">2 Academic Years</strong>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </AnimatePresence>
 
             {/* Verified Faculty Note from SRS */}
             <div className="pt-5 mt-5 border-t border-[#E3DCD3] text-xs text-[#525F5A] flex items-center gap-2 text-left">

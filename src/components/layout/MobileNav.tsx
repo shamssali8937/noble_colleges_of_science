@@ -20,9 +20,14 @@ export const MobileNav: React.FC<MobileNavProps> = ({
   onNavClick,
 }) => {
   const menuRef = useRef<HTMLDivElement>(null)
+  const closeButtonRef = useRef<HTMLButtonElement>(null)
 
-  // Close on Escape key press
+  // Focus management & Escape key listener
   useEffect(() => {
+    if (isOpen) {
+      closeButtonRef.current?.focus()
+    }
+
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && isOpen) {
         onClose()
@@ -75,12 +80,13 @@ export const MobileNav: React.FC<MobileNavProps> = ({
             <div className="p-4 sm:p-5 flex items-center justify-between border-b border-[#E3DCD3] bg-white">
               <CollegeLogo showSubtitle={false} showUrdu={false} />
               <button
+                ref={closeButtonRef}
                 type="button"
                 onClick={onClose}
-                className="p-2 text-[#384640] hover:text-[#133826] hover:bg-[#F3EFE8] rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#133826]"
+                className="min-w-[44px] min-h-[44px] inline-flex items-center justify-center p-2 text-[#384640] hover:text-[#133826] hover:bg-[#F3EFE8] rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#133826]"
                 aria-label="Close navigation menu"
               >
-                <X className="w-5 h-5" />
+                <X className="w-6 h-6" />
               </button>
             </div>
 
@@ -94,7 +100,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({
             </div>
 
             {/* Navigation Links with slight stagger */}
-            <nav className="flex-1 overflow-y-auto px-4 py-4 space-y-1" aria-label="Mobile Navigation">
+            <nav className="flex-1 overflow-y-auto px-4 py-4 space-y-1.5" aria-label="Mobile Navigation">
               {NAV_ITEMS.map((item: NavItem, index: number) => {
                 const itemId = item.href.replace('#', '')
                 const isActive = activeId === itemId
@@ -102,9 +108,9 @@ export const MobileNav: React.FC<MobileNavProps> = ({
                 return (
                   <motion.div
                     key={item.href}
-                    initial={{ opacity: 0, x: 20 }}
+                    initial={{ opacity: 0, x: 16 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.04 * index, duration: 0.2 }}
+                    transition={{ delay: 0.03 * index, duration: 0.2 }}
                   >
                     <a
                       href={item.href}
@@ -114,7 +120,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({
                         onClose()
                       }}
                       className={cn(
-                        'flex items-center justify-between px-4 py-3 rounded-md text-base font-sans font-medium transition-colors',
+                        'min-h-[48px] flex items-center justify-between px-4 py-3 rounded-md text-base font-sans font-medium transition-colors',
                         isActive
                           ? 'bg-[#133826] text-white font-semibold shadow-xs'
                           : 'text-[#111F18] hover:bg-[#F3EFE8]'
@@ -137,7 +143,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({
             <div className="p-5 border-t border-[#E3DCD3] bg-white space-y-3">
               <Button
                 variant="primary"
-                className="w-full justify-center"
+                className="w-full justify-center min-h-[48px]"
                 onClick={() => {
                   onNavClick('#admissions')
                   onClose()
@@ -148,7 +154,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({
 
               <a
                 href="tel:03336831370"
-                className="flex items-center justify-center gap-2 w-full py-2.5 px-4 bg-[#F3EFE8] hover:bg-[#E7DFD3] text-[#133826] rounded-md text-sm font-semibold transition-colors border border-[#E3DCD3]"
+                className="flex items-center justify-center gap-2 w-full min-h-[48px] px-4 bg-[#F3EFE8] hover:bg-[#E7DFD3] text-[#133826] rounded-md text-sm font-semibold transition-colors border border-[#E3DCD3]"
               >
                 <Phone className="w-4 h-4 text-[#8D1B2D]" />
                 <span>Call Principal: 0333-6831370</span>

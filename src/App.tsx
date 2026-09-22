@@ -8,6 +8,8 @@ import { FacultyPage } from '@/pages/FacultyPage'
 import { FacilitiesPage } from '@/pages/FacilitiesPage'
 import { GalleryPage } from '@/pages/GalleryPage'
 import { ContactPage } from '@/pages/ContactPage'
+import { motion, AnimatePresence } from 'motion/react'
+import { transitionEase } from '@/lib/animations'
 
 type RoutePath = 'home' | 'about' | 'academics' | 'admissions' | 'faculty' | 'facilities' | 'gallery' | 'contact'
 
@@ -66,7 +68,17 @@ export const App: React.FC = () => {
 
   return (
     <PageContainer activeId={currentRoute} onNavClick={handleNavClick}>
-      {renderActivePage()}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentRoute}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.22, ease: transitionEase }}
+        >
+          {renderActivePage()}
+        </motion.div>
+      </AnimatePresence>
     </PageContainer>
   )
 }

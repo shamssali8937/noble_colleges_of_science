@@ -7,6 +7,7 @@ import { PrimaryCta } from '@/components/ui/CtaButton'
 import { COLLEGE_DATA, type AcademicProgram } from '@/data/collegeData'
 import { Award, BookOpen, GraduationCap, ArrowRight, CheckCircle2, ChevronRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { motion, AnimatePresence } from 'motion/react'
 
 interface AcademicsPageProps {
   onNavClick: (href: string) => void
@@ -182,48 +183,57 @@ export const AcademicsPage: React.FC<AcademicsPageProps> = ({ onNavClick }) => {
 
             {/* Program Profile Canvas (7 cols) */}
             <div className="lg:col-span-7 bg-[#FAF8F5] border border-[#E3DCD3] rounded-lg p-6 sm:p-8 flex flex-col justify-between shadow-xs text-left">
-              <div className="space-y-6">
-                <div className="flex items-center justify-between border-b border-[#E3DCD3] pb-4">
-                  <div>
-                    <span className="text-xs uppercase tracking-wider font-semibold text-[#8D1B2D]">
-                      Group Profile
-                    </span>
-                    <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#111F18] mt-1">
-                      {currentProgram.fullName}
-                    </h3>
-                  </div>
-                  <div className="p-3 rounded-full bg-white border border-[#E3DCD3] text-[#133826] hidden sm:block">
-                    <BookOpen className="w-6 h-6" />
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  <p className="text-base text-[#384640] leading-relaxed">
-                    {currentProgram.summary}
-                  </p>
-
-                  <div className="p-4 bg-white rounded border border-[#E3DCD3] space-y-2">
-                    <div className="flex items-center gap-2 text-xs font-semibold text-[#133826]">
-                      <CheckCircle2 className="w-4 h-4 text-[#133826]" />
-                      <span>Curriculum & Subject Standards</span>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentProgram.id}
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -6 }}
+                  transition={{ duration: 0.18 }}
+                  className="space-y-6"
+                >
+                  <div className="flex items-center justify-between border-b border-[#E3DCD3] pb-4">
+                    <div>
+                      <span className="text-xs uppercase tracking-wider font-semibold text-[#8D1B2D]">
+                        Group Profile
+                      </span>
+                      <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#111F18] mt-1">
+                        {currentProgram.fullName}
+                      </h3>
                     </div>
-                    <p className="text-xs sm:text-sm text-[#525F5A] pl-6">
-                      {currentProgram.curriculumNote} All coursework strictly conforms to the prescribed syllabus issued by the Sargodha Board.
+                    <div className="p-3 rounded-full bg-white border border-[#E3DCD3] text-[#133826] hidden sm:block">
+                      <BookOpen className="w-6 h-6" />
+                    </div>
+                  </div>
+
+                  <div className="space-y-4">
+                    <p className="text-base text-[#384640] leading-relaxed">
+                      {currentProgram.summary}
                     </p>
-                  </div>
 
-                  <div className="grid grid-cols-2 gap-3 text-xs">
-                    <div className="p-3 bg-white rounded border border-[#E3DCD3]">
-                      <span className="block text-[#65756E] font-medium">Examination Body</span>
-                      <strong className="text-[#111F18] font-serif text-sm">{currentProgram.board}</strong>
+                    <div className="p-4 bg-white rounded border border-[#E3DCD3] space-y-2">
+                      <div className="flex items-center gap-2 text-xs font-semibold text-[#133826]">
+                        <CheckCircle2 className="w-4 h-4 text-[#133826]" />
+                        <span>Curriculum & Subject Standards</span>
+                      </div>
+                      <p className="text-xs sm:text-sm text-[#525F5A] pl-6">
+                        {currentProgram.curriculumNote} All coursework strictly conforms to the prescribed syllabus issued by the Sargodha Board.
+                      </p>
                     </div>
-                    <div className="p-3 bg-white rounded border border-[#E3DCD3]">
-                      <span className="block text-[#65756E] font-medium">Program Length</span>
-                      <strong className="text-[#111F18] font-serif text-sm">2 Academic Years</strong>
+
+                    <div className="grid grid-cols-2 gap-3 text-xs">
+                      <div className="p-3 bg-white rounded border border-[#E3DCD3]">
+                        <span className="block text-[#65756E] font-medium">Examination Body</span>
+                        <strong className="text-[#111F18] font-serif text-sm">{currentProgram.board}</strong>
+                      </div>
+                      <div className="p-3 bg-white rounded border border-[#E3DCD3]">
+                        <span className="block text-[#65756E] font-medium">Program Length</span>
+                        <strong className="text-[#111F18] font-serif text-sm">2 Academic Years</strong>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
+                </motion.div>
+              </AnimatePresence>
 
               {/* Path to Admissions */}
               <div className="pt-6 mt-6 border-t border-[#E3DCD3] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
