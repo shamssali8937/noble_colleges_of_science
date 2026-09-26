@@ -16,7 +16,7 @@ interface GalleryItem {
 const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: 'building',
-    category: 'Building & Campus',
+    category: 'College Building',
     image: '/images/campus/campus-building.jpg',
     caption: 'Campus exterior grounds and academic building wing at Wan Bhachran.',
     figureNumber: 'Figure 1',
@@ -36,25 +36,39 @@ const GALLERY_ITEMS: GalleryItem[] = [
     figureNumber: 'Figure 3',
   },
   {
+    id: 'principal-address',
+    category: 'Events & Student Activities',
+    image: '/images/campus/principal-ehsanullah-malik-address.jpg',
+    caption: 'Founder & Principal Ehsanullah Malik delivering his address from the official college podium.',
+    figureNumber: 'Figure 4',
+  },
+  {
+    id: 'student-gathering',
+    category: 'Events & Student Activities',
+    image: '/images/campus/student-gathering-assembly.jpg',
+    caption: 'Noble Science College students seated attentively during an institutional assembly session.',
+    figureNumber: 'Figure 5',
+  },
+  {
+    id: 'public-speaking',
+    category: 'Events & Student Activities',
+    image: '/images/campus/student-public-speaking-speech.jpg',
+    caption: 'Student orator practicing public speaking and declamation, fostering confidence and leadership.',
+    figureNumber: 'Figure 6',
+  },
+  {
     id: 'library',
     category: 'Library',
     image: '/images/campus/library-reading.jpg',
     caption: 'Curated reference library and silent study stations for independent revision.',
-    figureNumber: 'Figure 4',
-  },
-  {
-    id: 'assemblies',
-    category: 'Events & Assemblies',
-    image: '/images/campus/student-assembly.jpg',
-    caption: 'Morning student assembly cultivating confidence and oral communication.',
-    figureNumber: 'Figure 5',
+    figureNumber: 'Figure 7',
   },
   {
     id: 'achievements',
-    category: 'Student Achievements',
+    category: 'Awards & Achievements',
     image: '/images/campus/academic-awards.jpg',
     caption: 'Commemoration of high academic achievement and BISE Sargodha distinctions.',
-    figureNumber: 'Figure 6',
+    figureNumber: 'Figure 8',
   },
 ]
 

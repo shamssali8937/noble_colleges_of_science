@@ -80,22 +80,22 @@ export const IntroSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Plate 2: Assembly & Campus Life */}
+            {/* Plate 2: Assembly & Public Speaking */}
             <div className="bg-[#FAF7F2] p-2 border border-[#E2DDD5] text-left">
               <div className="aspect-[16/10] overflow-hidden border border-[#E2DDD5] bg-[#F2ECE1]">
                 <img
-                  src="/images/campus/student-assembly.jpg"
-                  alt="Student Assembly and Co-curricular Gatherings"
+                  src="/images/campus/student-public-speaking-speech.jpg"
+                  alt="Student Public Speaking and Declamation Practice"
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
               </div>
               <div className="pt-2 px-0.5 space-y-0.5">
                 <span className="font-serif italic text-xs text-[#1F1A19] block">
-                  Figure II: Student Assembly & Public Speaking Exercises
+                  Figure II: Student Public Speaking & Declamation Exercise
                 </span>
                 <p className="text-[11px] text-[#736865] font-sans border-t border-[#E2DDD5]/60 pt-1">
-                  Co-curricular gatherings where students practice speech delivery, declamation, and articulate discussion.
+                  Students actively participating in oration, confidence building, and assembly presentations at Wan Bhachran.
                 </p>
               </div>
             </div>
