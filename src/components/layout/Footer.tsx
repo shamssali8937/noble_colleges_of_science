@@ -190,16 +190,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick }) => {
             <span>•</span>
             <span>Est. 2009</span>
             <span>•</span>
+            {/* Designed by Shams Ali Mehdi (https://shams-portfolio-nine.vercel.app) */}
             <span>
-              Designed by{' '}
-              <a
-                href="https://shams-portfolio-nine.vercel.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#D4AF37] hover:text-white underline underline-offset-2 transition-colors font-medium"
-              >
-                Shams Ali Mehdi
-              </a>
+              Design and Develop by{' '}
+              <span className="text-[#D4AF37] font-medium tracking-wide">Nexappra</span>
             </span>
           </div>
         </Container>

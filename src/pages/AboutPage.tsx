@@ -200,6 +200,47 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavClick }) => {
                 </p>
               </div>
             </div>
+
+            {/* Visual Documentation of Campus Character Building */}
+            <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="border border-[#E2DDD5] bg-[#FAF7F2] p-3 text-left">
+                <div className="overflow-hidden border border-[#E2DDD5] bg-[#F2ECE1] aspect-[16/10]">
+                  <img
+                    src="/images/campus/student-public-speaking-speech.jpg"
+                    alt="Student Orator Delivering Speech at Assembly"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="pt-2.5 mt-2 border-t border-[#E2DDD5]">
+                  <span className="text-[10px] uppercase tracking-[0.15em] font-semibold text-[#8F0D19] font-sans block">
+                    Public Speaking & Confidence
+                  </span>
+                  <p className="font-serif italic text-xs text-[#756A67] mt-0.5">
+                    Figure: A student practicing declamation and public speaking at the microphone during a college assembly.
+                  </p>
+                </div>
+              </div>
+
+              <div className="border border-[#E2DDD5] bg-[#FAF7F2] p-3 text-left">
+                <div className="overflow-hidden border border-[#E2DDD5] bg-[#F2ECE1] aspect-[16/10]">
+                  <img
+                    src="/images/campus/student-gathering-assembly.jpg"
+                    alt="Noble Science College Student Body Assembly"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="pt-2.5 mt-2 border-t border-[#E2DDD5]">
+                  <span className="text-[10px] uppercase tracking-[0.15em] font-semibold text-[#1D5B56] font-sans block">
+                    Student Community
+                  </span>
+                  <p className="font-serif italic text-xs text-[#756A67] mt-0.5">
+                    Figure: Noble Science College students gathered attentively for an academic convocation session in Wan Bhachran.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </Container>
       </Section>

@@ -103,6 +103,29 @@ export const PrincipalSection: React.FC = () => {
                 </div>
               </div>
 
+              {/* Documentary Plate: Principal Addressing Ceremony */}
+              <div className="p-3 bg-[#FAF7F2] border border-[#E2DDD5] flex flex-col sm:flex-row items-center gap-4">
+                <div className="w-full sm:w-44 shrink-0 aspect-[4/3] overflow-hidden border border-[#E2DDD5] bg-[#F2ECE1]">
+                  <img
+                    src="/images/campus/principal-ehsanullah-malik-address.jpg"
+                    alt="Principal Ehsanullah Malik addressing students from the official podium"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="text-left space-y-1">
+                  <span className="text-[10px] uppercase tracking-[0.15em] font-semibold text-[#8F0D19] font-sans block">
+                    Institutional Record • Official Address
+                  </span>
+                  <h4 className="font-serif font-bold text-sm text-[#1F1A19]">
+                    Addressing the Assembly from the College Rostrum
+                  </h4>
+                  <p className="text-xs text-[#736865] leading-relaxed font-sans">
+                    Principal Ehsanullah Malik addressing students and faculty from the official Noble Science College & School System podium during an institutional assembly.
+                  </p>
+                </div>
+              </div>
+
               <div className="pt-1 flex items-center gap-2 text-xs text-[#736865] font-sans">
                 <Award className="w-4 h-4 text-[#8F0D19]" />
                 <span>Supporting academic excellence and deserving student fee concessions since 2009.</span>
